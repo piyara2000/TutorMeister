@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="css/stdSignUp.css">
+    <style>
+        body{
+            background-image: url(img/login.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" class="form">
+            <div class="row">
+                <div class="flex">
+                    <div>
+                        <img class="home-logo-img" src="img/logo.jpg" alt="HomePageLogo" > 
+                    </div>
+                    <div>
+                        <h3 class="homeLogo">TutorMeister</h3>
+                    </div>
+                </div>
+                <h3 class="heading">Sign-Up As an Instructor</h3>
+                <div class="flex">
+                    <div>
+                        <input type="text" class="inputbox name" placeholder="First name">
+                    </div>
+                    <div>
+                        <input type="text" class="inputbox name" placeholder="Last name">
+                    </div>
+                </div><br>
+                <center><input type="email" class="inputbox details" placeholder="Email"></center><br>
+                <center><input type="password" class="inputbox details" placeholder="Create password"></center><br>
+                <center><input type="contact" class="inputbox details" placeholder="Contact Number"></center><br>
+                <div class="flex buttons">
+                    <div>
+                        <input type="button" value="Register" class="button register-btn" onclick="window.location.href='instructorHome.html';">
+                    </div>
+                    <div>
+                        <input type="button" value="Already have an account? Log-In" class="button login-btn" onclick="window.location.href='instructorLogIn.html';">
+                    </div>
+                </div><br>
+                <div class="padding">
+                    <input type="button" value=" Sign-Up as an Student " class="button instructor-signup-btn" onclick="window.location.href='studentSignUp.html';">
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="home-footer">
+        <ul>
+            <li><a href="">Help desk</a></li>
+            <li><a href="">Contact us</a></li>
+            <li><a href="">About us</a></li>
+            
+        </ul>
+        <hr>
+        <p><center> © 2023, TutorMeister, Inc.</center></p>
+    </div>
+</body>
+</html>
