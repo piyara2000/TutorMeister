@@ -36,7 +36,6 @@ img.home-logo-img{
 }
 
 .heading{
-    font-family: Verdana;
     font-weight: bold;
     text-align: center;
     padding-bottom: 20px;
@@ -44,7 +43,6 @@ img.home-logo-img{
 
 .inputbox{
     box-sizing: border-box;
-
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -96,7 +94,6 @@ img.home-logo-img{
 
 /* footer */
 .home-footer{
-    position: absolute;
     height: 60px;
     bottom: 0px;
     left: 0px;

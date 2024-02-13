@@ -62,7 +62,6 @@ a:hover{
     margin-top: 140px;
     width: 684px;
     height: 45px;
-
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -76,7 +75,6 @@ a:hover{
 .container{
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5em;
 }
 
 .btn{
@@ -85,10 +83,11 @@ a:hover{
     vertical-align: middle;
     padding: .67em .67em;
     cursor: pointer;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: #86C232;
     border: none;
     border-radius: .3em;
+    border: 1px solid #86C232;
 }
 
 .btn:hover{
@@ -98,8 +97,11 @@ a:hover{
 }
 
 .item{
+    padding-top: 10px;
+    padding-bottom: 20px;
     margin: 35px;
     background-color: #FFFFFF;
+    border-radius: 10px;
 }
 
 .item-title{
