@@ -1,75 +1,7 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    padding: 20px;
-}
-
-.form{
-    width: 550px;
-    background: #CAD2D7;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-    padding-bottom: 20px;
-}
-
-.login-form{
-    width: 450px;
-}
-
-.flex{
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-}
-
-img.home-logo-img{
-    width: 70px;
-    height: 60px;   
-}
-
-.homeLogoSignUp{
-    font-family: Verdana;
-    font-size: 30px;
-    text-decoration: underline;
-    line-height: 30px;
-}
-
-.heading{
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-.inputbox{
-    box-sizing: border-box;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.name{
-    width: 200px;
-    height: 30px;
-}
-
-.details{
-    height: 30px;
-    width: 416px;
-}
-
-.buttons{
-    gap: 165px;
-}
-
-.signup-btns{
-    gap: 25px;
-}
-
 .button{
     font-size: 12px;
     text-align: center;
-    vertical-align: middle;
+    vertical-align:10px;
     padding: .67em .67em;
     cursor: pointer;
     color: white;
@@ -84,12 +16,96 @@ img.home-logo-img{
     border: 1px solid black;
 }
 
-.padding{
-    padding-left: 340px;
+.button.forgot-password {
+    background-color:#4aba6e;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button.forgot-password:hover {
+    background-color: #4aba6e;
+    border: none;
+    text-decoration: underline;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    bottom: 100px;
+    top: 100px;
+}
+
+.details{
+    height: 30px;
+    width: 416px;
+}
+
+.flex{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 550px;
+    background: #4aba6e;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.heading{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.homeLogoSignUp{
+    font-family: Verdana;
+    font-size: 30px;
+    text-decoration: underline;
+    line-height: 30px;
+}
+
+.inputbox{
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-btn{
+    gap: 120px;
 }
 
 .login-details{
     width: 300px;
+}
+
+.login-form{
+    width: 450px;
+    text-align: center; 
+}
+
+.name{
+    width: 200px;
+    height: 30px;
+}
+
+.padding{
+    padding-left: 340px;
+}
+
+.signup-btns{
+    gap: 25px;
 }
 
 /* footer */
