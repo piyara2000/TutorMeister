@@ -1,7 +1,7 @@
-import React from 'react';
-import './css/stdSignUp.css'; // Import your CSS file
-import logo from './img/logo.jpg'; // Update the path as needed
-import loginImage from './img/login.jpg'; // Update the path as needed
+import React from "react";
+import "./css/stdSignUp.css"; // Import your CSS file
+import logo from "./img/RectangleLogo.png"; // Update the path as needed
+import loginImage from "./img/login.jpg"; // Update the path as needed
 
 const StudentLogin = () => {
   return (
@@ -21,35 +21,62 @@ const StudentLogin = () => {
           <div className="row">
             <div className="flex">
               <div>
-                <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-              </div>
-              <div>
-                <h3 className="homeLogoSignUp">TutorMeister</h3>
+                <img
+                  className="rectangular-logo"
+                  src={logo}
+                  alt="RectangularLogo"
+                />
               </div>
             </div>
             <h3 className="heading">Log-In as a Student</h3>
             <center>
-              <input type="email" className="inputbox details login-details" placeholder="Email-address" />
-            </center><br /><br />
-            <center>
-              <input type="password" className="inputbox details login-details" placeholder="Password" />
-            </center><br /><br />
+              <input
+                type="email"
+                className="inputbox details login-details"
+                placeholder="Email-address"
+              />
+            </center>
+            <br />
+            <br />
             <center>
               <input
-                type="button"
-                value="Log-In"
-                className="button login-btn"
-                onClick={() => window.location.href = 'studentHome.html'}
+                type="password"
+                className="inputbox details login-details"
+                placeholder="Password"
               />
-            </center><br />
-            <p><center>Not a member?</center></p>
+            </center>
+            <br />
+            <br />
+            <div className="flex buttons login-btn">
+              <div>
+                <input
+                  type="button"
+                  value="Log-In"
+                  className="button login-btn"
+                  onClick={() => (window.location.href = "studentHome.html")}
+                />
+              </div>
+              <div>
+                <input
+                  type="button"
+                  value="Forgot your password?"
+                  className="button forgot-password"
+                  onClick={() => (window.location.href = "")}
+                />
+                <br />
+              </div>
+            </div>
+            <br />
+            <p>
+              <center>Not a member?</center>
+            </p>
             <div className="flex buttons signup-btns">
               <div>
                 <input
                   type="button"
                   value="Sign-Up as a student"
                   className="button signup-btn"
-                  onClick={() => window.location.href = 'studentSignUp.html'}
+                  onClick={() => (window.location.href = "studentSignUp.html")}
                 />
               </div>
               <div>
@@ -57,22 +84,33 @@ const StudentLogin = () => {
                   type="button"
                   value="Sign-Up as an instructor"
                   className="button signup-btn"
-                  onClick={() => window.location.href = 'instructorSignUp.html'}
+                  onClick={() =>
+                    (window.location.href = "instructorSignUp.html")
+                  }
                 />
               </div>
-            </div><br />
+            </div>
+            <br />
           </div>
         </form>
       </div>
 
       <div className="home-footer">
         <ul>
-          <li><a href="">Help desk</a></li>
-          <li><a href="">Contact us</a></li>
-          <li><a href="">About us</a></li>
+          <li>
+            <a href="">Help desk</a>
+          </li>
+          <li>
+            <a href="">Contact us</a>
+          </li>
+          <li>
+            <a href="">About us</a>
+          </li>
         </ul>
         <hr />
-        <p><center>© 2023, TutorMeister, Inc.</center></p>
+        <p>
+          <center>© 2023, TutorMeister, Inc.</center>
+        </p>
       </div>
     </>
   );
