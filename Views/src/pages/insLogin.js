@@ -16,7 +16,7 @@ const InstructorLogin = () => {
           }
         `}
       </style>
-      <div className="container">
+      <div className="container-login">
         <form action="" className="form login-form">
           <div className="row">
             <div className="flex">
