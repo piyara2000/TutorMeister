@@ -1,11 +1,9 @@
 import React from 'react';
 import './css/stdCourse.css'; // Import your CSS file
 import logo from './img/logo.jpg'; // Update the path as needed
-//import myCoursesImage from './img/myCourses.jpg'; // Update the path as needed
 import maths from './img/maths.png';
 import science from './img/science.jpg';
 import english from './img/english.jpeg';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 
 const StudentCourseHome = () => {
   return (
