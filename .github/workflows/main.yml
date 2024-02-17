@@ -20,17 +20,17 @@ jobs:
 
       - name: Install dependencies in controller
         run: |
-          cd controller
+          cd Controller
           npm install
 
       - name: Run tests in controller
         run: |
-          cd controller
+          cd Controller
           npm test
 
       - name: Install dependencies in views
         run: |
-          cd views
+          cd Views
           npm install
 
       - name: Run tests in views
