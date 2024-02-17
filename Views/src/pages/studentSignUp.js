@@ -1,6 +1,6 @@
 import React from "react";
-import './css/stdSignUp.css'; 
-import logo from './img/logo.jpg';
+import './css/stdSignUp.css';
+import logonew from './img/Rectangle 12.png'
 import loginImage from './img/login.jpg';
 
 const StudentSignUp = () => {
@@ -21,18 +21,13 @@ const StudentSignUp = () => {
           }
         `}
       </style>
-      <div className="container">
+      <div className="containerStd">
         <form action="" className="form">
           <div className="row">
             <div className="flex">
-              <div>
-                <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-              </div>
-              <div>
-                <h3 className="homeLogoSignUp">TutorMeister</h3>
-              </div>
+              <img className="home-logo-img-stSignup" src={logonew} alt="HomePageLogo" />
             </div>
-            <h3 className="heading">Sign-Up As a Student</h3>
+            <h3 className="heading-stSignup">Sign-Up As a Student</h3>
             <div className="flex">
               <div>
                 <input type="text" className="inputbox name" placeholder="First name" />
@@ -41,6 +36,18 @@ const StudentSignUp = () => {
                 <input type="text" className="inputbox name" placeholder="Last name" />
               </div>
             </div>
+            <div className="flex1">
+              <div>
+                <input type="text" className="inputbox name" placeholder="User name" />
+              </div>
+              <div>
+                <input type="text" className="inputbox name" placeholder="Age" />
+              </div>
+            </div>
+            <br />
+            <center>
+              <input type="text" className="inputbox details" placeholder="Country" />
+            </center>
             <br />
             <center>
               <input type="email" className="inputbox details" placeholder="Email" />
@@ -50,15 +57,25 @@ const StudentSignUp = () => {
               <input type="password" className="inputbox details" placeholder="Create password" />
             </center>
             <br />
-            <div className="flex buttons">
-              <div>
+            <div className="flex3">
+              <div className="flexBox">
                 <input
                   type="button"
-                  value="Register"
+                  value="Sign-Up as an instructor"
+                  className="button signInstructor-btn"
+                  onClick={() => window.location.href = 'instructorSignUp.html'}
+                />
+              </div>
+              <div className="flexBox">
+                <input
+                  type="button"
+                  value="Next"
                   className="button register-btn"
                   onClick={() => window.location.href = 'studentHome.html'}
                 />
               </div>
+            </div>
+            <div className="flex4">
               <div>
                 <input
                   type="button"
@@ -69,33 +86,17 @@ const StudentSignUp = () => {
               </div>
             </div>
             <br />
-            <div className="padding">
-              <input
-                type="button"
-                value="Sign-Up as an instructor"
-                className="button instructor-signup-btn"
-                onClick={() => window.location.href = 'instructorSignUp.html'}
-              />
-            </div>
           </div>
         </form>
       </div>
       <div className="home-footer">
         <ul>
-          <li>
-            <a href="">Help desk</a>
-          </li>
-          <li>
-            <a href="">Contact us</a>
-          </li>
-          <li>
-            <a href="">About us</a>
-          </li>
+          <li><a href="">Help desk</a></li>
+          <li><a href="">Contact us</a></li>
+          <li><a href="">About us</a></li>
         </ul>
         <hr />
-        <p />
-        <center>© 2024, TutorMeister, Inc.</center>
-        <p />
+        <p><center>© 2024, TutorMeister, Inc.</center></p>
       </div>
     </>
   );

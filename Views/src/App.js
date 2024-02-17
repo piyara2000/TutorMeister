@@ -3,6 +3,7 @@ import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './App.css';
 import StudentSignUp from "./pages/studentSignUp";
+import StudentSignUpPage02 from "./pages/studentSignUpPage02";
 import StudentHome from "./pages/studentHome";
 import CreateCourse from "./pages/createCourse";
 import InstructorHome from './pages/instructorHome';
@@ -19,6 +20,7 @@ function App() {
         <ToastContainer/>
         <Routes>
           <Route exact path="/student-register" element={<StudentSignUp />}/>
+          <Route exact path="/student-register-page02" element={<StudentSignUpPage02 />}/>
           <Route exact path="/student-home" element={<StudentHome />}/>
           <Route exact path="/create-course" element={<CreateCourse />}/>
           <Route exact path="/instructor-home" element={<InstructorHome />}/>

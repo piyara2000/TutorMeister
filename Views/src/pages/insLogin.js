@@ -52,7 +52,7 @@ const InstructorLogin = () => {
                 <input
                   type="button"
                   value="Log-In"
-                  className="button login-btn"
+                  className="button login-btn1"
                   onClick={() => (window.location.href = "instructorHome.html")}
                 />
                 <br />
