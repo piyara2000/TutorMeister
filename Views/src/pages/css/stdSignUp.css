@@ -17,7 +17,7 @@
 }
 
 .button.forgot-password {
-    background-color:#4aba6e;
+    background-color: #86C232;
     color: #000000;
     font-weight: bold;
     text-decoration: none;
@@ -25,12 +25,12 @@
 }
 
 .button.forgot-password:hover {
-    background-color: #4aba6e;
+    background-color: #86C232;
     border: none;
     text-decoration: underline;
 }
 
-.container{
+.container-login{
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -56,7 +56,7 @@
 
 .form{
     width: 550px;
-    background: #4aba6e;
+    background-color: #86C232;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
     padding-bottom: 20px;
     padding-top: 20px;
