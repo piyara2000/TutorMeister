@@ -28,22 +28,18 @@ const StudentSignUp = () => {
               <img className="home-logo-img-stSignup" src={logonew} alt="HomePageLogo" />
             </div>
             <h3 className="heading-stSignup">Sign-Up As a Student</h3>
-            <div className="flex">
-              <div>
-                <input type="text" className="inputbox name" placeholder="First name" />
-              </div>
-              <div>
-                <input type="text" className="inputbox name" placeholder="Last name" />
-              </div>
-            </div>
             <div className="flex1">
               <div>
-                <input type="text" className="inputbox name" placeholder="User name" />
+                <input type="text" className="inputbox name" placeholder="First Name" />
               </div>
               <div>
-                <input type="text" className="inputbox name" placeholder="Age" />
+                <input type="text" className="inputbox name" placeholder="Last Name" />
               </div>
             </div>
+            <br />
+            <center>
+              <input type="text" className="inputbox details" placeholder="User Name" />
+            </center>
             <br />
             <center>
               <input type="text" className="inputbox details" placeholder="Country" />
@@ -63,7 +59,7 @@ const StudentSignUp = () => {
                   type="button"
                   value="Sign-Up as an instructor"
                   className="button signInstructor-btn"
-                  onClick={() => window.location.href = 'instructorSignUp.html'}
+                  onClick={() => window.location.href = '/instructor-register'}
                 />
               </div>
               <div className="flexBox">
@@ -71,7 +67,7 @@ const StudentSignUp = () => {
                   type="button"
                   value="Next"
                   className="button register-btn"
-                  onClick={() => window.location.href = 'studentHome.html'}
+                  onClick={() => window.location.href = '/student-register-page02'}
                 />
               </div>
             </div>
@@ -81,7 +77,7 @@ const StudentSignUp = () => {
                   type="button"
                   value="Already have an account? Log-In"
                   className="button login-btn"
-                  onClick={() => window.location.href = 'studentLogIn.html'}
+                  onClick={() => window.location.href = '/student-login'}
                 />
               </div>
             </div>
