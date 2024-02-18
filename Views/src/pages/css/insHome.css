@@ -37,10 +37,30 @@
     border-radius: 20px;
 }
 
+.item-ins{
+    padding-bottom: 20px;
+    margin: 35px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.item-image-ins{
+    height: 150px;
+    width: 250px;
+    border-radius: 10px;
+}
+
 .search-margin{
     max-width: calc(100% - 50rem);
     width: 50rem;
     margin: 0px auto;
+}
+
+.subHeading{
+    font-family: 'Sora';
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 5px;
 }
 
 @media only screen and (max-width: 960px) {
@@ -73,5 +93,12 @@
         font-size: 25px;
         text-align: center;
         padding-bottom: 30px;
+    }
+    
+    .subHeading{
+        font-family: 'Sora';
+        font-size: 15px;
+        text-align: center;
+        padding-bottom: 5px;
     }
 }
