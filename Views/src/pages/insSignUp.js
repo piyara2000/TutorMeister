@@ -85,7 +85,7 @@ const InstructorSignUp = () => {
           </div>
         </form>
       </div>
-      {/* <div className="home-footer">
+      <div className="home-footer">
         <ul>
           <li><a href="">Help desk</a></li>
           <li><a href="">Contact us</a></li>
@@ -93,7 +93,7 @@ const InstructorSignUp = () => {
         </ul>
         <hr />
         <p><center>© 2024, TutorMeister, Inc.</center></p>
-      </div> */}
+      </div>
     </>
   );
 };
