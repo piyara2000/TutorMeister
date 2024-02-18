@@ -111,7 +111,7 @@ const StudentSignUpPage02 = () => {
                   type="button"
                   value="Back"
                   className="button signInstructor-btn"
-                  onClick={() => window.location.href = 'instructorSignUp.html'}
+                  onClick={() => window.location.href = '/student-register'}
                 />
               </div>
               <div className="flexBox">
@@ -119,7 +119,7 @@ const StudentSignUpPage02 = () => {
                   type="button"
                   value="Register"
                   className="button register-btn"
-                  onClick={() => window.location.href = 'studentHome.html'}
+                  onClick={() => window.location.href = '/student-home'}
                 />
               </div>
             </div>

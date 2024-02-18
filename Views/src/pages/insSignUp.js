@@ -1,89 +1,99 @@
 import React from 'react';
-import './css/stdSignUp.css'; // Import your CSS file
-import logo from './img/logo.jpg'; // Update the path as needed
-import signupImage from './img/login.jpg'; // Update the path as needed
+import './css/stdSignUp.css';
+import logonew from './img/Rectangle 12.png'
+import loginImage from './img/login.jpg';
 
 const InstructorSignUp = () => {
   return (
     <>
+      <meta charSet="UTF-8" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Sign-Up</title>
+      <link rel="stylesheet" href="css/stdSignUp.css" />
       <style>
         {`
           body {
-            background-image: url(${signupImage});
+            background-image: url(${loginImage});
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
           }
         `}
       </style>
-      <div className="container">
+      <div className="containerStd">
         <form action="" className="form">
           <div className="row">
             <div className="flex">
+              <img className="home-logo-img-stSignup" src={logonew} alt="HomePageLogo" />
+            </div>
+            <h3 className="heading-stSignup">Sign-Up As an Instructor</h3>
+            <div className="flex1">
               <div>
-                <img className="home-logo-img" src={logo} alt="HomePageLogo" />
+                <input type="text" className="inputbox name" placeholder="First Name" />
               </div>
               <div>
-                <h3 className="homeLogoSignUp">TutorMeister</h3>
+                <input type="text" className="inputbox name" placeholder="Last Name" />
               </div>
             </div>
-            <h3 className="heading">Sign-Up As an Instructor</h3>
-            <div className="flex">
-              <div>
-                <input type="text" className="inputbox name" placeholder="First name" />
-              </div>
-              <div>
-                <input type="text" className="inputbox name" placeholder="Last name" />
-              </div>
-            </div><br />
+            <br />
+            <center>
+              <input type="text" className="inputbox details" placeholder="User Name" />
+            </center>
+            <br />
+            <center>
+              <input type="text" className="inputbox details" placeholder="Country" />
+            </center>
+            <br />
             <center>
               <input type="email" className="inputbox details" placeholder="Email" />
-            </center><br />
+            </center>
+            <br />
             <center>
               <input type="password" className="inputbox details" placeholder="Create password" />
-            </center><br />
-            <center>
-              <input type="contact" className="inputbox details" placeholder="Contact Number" />
-            </center><br />
-            <div className="flex buttons">
-              <div>
+            </center>
+            <br />
+            <div className="flex3">
+              <div className="flexBox">
+                <input
+                  type="button"
+                  value="Sign-Up as a student"
+                  className="button signInstructor-btn"
+                  onClick={() => window.location.href = '/student-register'}
+                />
+              </div>
+              <div className="flexBox">
                 <input
                   type="button"
                   value="Register"
                   className="button register-btn"
-                  onClick={() => window.location.href = 'instructorHome.html'}
+                  onClick={() => window.location.href = '/instructor-home'}
                 />
               </div>
+            </div>
+            <div className="flex4">
               <div>
                 <input
                   type="button"
                   value="Already have an account? Log-In"
                   className="button login-btn"
-                  onClick={() => window.location.href = 'instructorLogIn.html'}
+                  onClick={() => window.location.href = '/instructor-login'}
                 />
               </div>
-            </div><br />
-            <div className="padding">
-              <input
-                type="button"
-                value="Sign-Up as an Student"
-                className="button instructor-signup-btn"
-                onClick={() => window.location.href = 'studentSignUp.html'}
-              />
             </div>
+            <br />
           </div>
         </form>
       </div>
-
-      <div className="home-footer">
+      {/* <div className="home-footer">
         <ul>
           <li><a href="">Help desk</a></li>
           <li><a href="">Contact us</a></li>
           <li><a href="">About us</a></li>
         </ul>
         <hr />
-        <p><center>© 2023, TutorMeister, Inc.</center></p>
-      </div>
+        <p><center>© 2024, TutorMeister, Inc.</center></p>
+      </div> */}
     </>
   );
 };
