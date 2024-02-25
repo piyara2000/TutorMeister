@@ -12,6 +12,7 @@ import InstructorCourseHome from './pages/insCourseHome';
 import InstructorSignUp from './pages/insSignUp';
 import StudentLogin from './pages/studentLogin';
 import StudentCourseHome from './pages/studentCourseHome';
+import StudentAccountEditPage from "./pages/studentAccountEdit";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route exact path="/student-register" element={<StudentSignUp />}/>
           <Route exact path="/student-register-page02" element={<StudentSignUpPage02 />}/>
+          <Route exact path="/student-account-edit" element={<StudentAccountEditPage />}/>
           <Route exact path="/student-home" element={<StudentHome />}/>
           <Route exact path="/create-course" element={<CreateCourse />}/>
           <Route exact path="/instructor-home" element={<InstructorHome />}/>
