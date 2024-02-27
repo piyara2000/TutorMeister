@@ -1,0 +1,7 @@
+{
+    "PORT": "5000",
+    "host": "localhost",
+    "user": "TutorMeister",
+    "password": "TutorMeister",
+    "database": "tmdb"
+}
