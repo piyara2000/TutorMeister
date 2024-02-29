@@ -14,5 +14,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/health', loginRouter);
+app.get('/login', loginRouter);
+app.post('/login', loginRouter);
 
 module.exports = app;

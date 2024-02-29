@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login | TutorMeister</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <script>
+      function redirectToSignUp(type) {
+        if (type === 'student') {
+          window.location.href = '/student-signup';
+        } else if (type === 'instructor') {
+          window.location.href = '/instructor-signup';
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container-login">
+      <form action="" method="post" class="form login-form">
+        <div class="row">
+          <div class="flex">
+            <div>
+              <img
+                class="rectangular-logo"
+                alt="RectangularLogo"
+                src="img/RectangleLogo.png"
+              />
+            </div>
+          </div>
+          <h3 class="heading">Log-In</h3>
+          <center>
+            <input
+              type="email"
+              name="username"
+              class="inputbox details login-details"
+              placeholder="Username or email"
+              onchange="setEmail(this.value)"
+            />
+          </center>
+          <br />
+          <br />
+          <center>
+            <input
+              type="password"
+              name="password"
+              class="inputbox details login-details"
+              placeholder="Password"
+              onchange="setPassword(this.value)"
+            />
+          </center>
+          <br />
+          <br />
+          <div class="flex buttons login-btn">
+            <div>
+              <input
+                type="submit"
+                value="Log-In"
+                class="button login-btn1"
+                onclick="handleLogin()"
+              />
+            </div>
+            <div>
+              <input
+                type="submit"
+                value="Forgot your password?"
+                class="button forgot-password"
+                onclick="window.location.href = ''"
+              />
+              <br />
+            </div>
+          </div>
+          <p>
+            <center>Not a member?</center>
+          </p>
+          <div class="flex buttons signup-btns">
+            <div>
+              <input type="button" value="Sign-Up as a student" class="button signup-btn" onclick="redirectToSignUp('student')" />
+            <input type="button" value="Sign-Up as an Instructor" class="button signup-btn" onclick="redirectToSignUp('instructor')" />
+          </div>
+            </div>
+          </div>
+          <br />
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="home-footer">
+      <ul>
+        <li>
+          <a href="">Help desk</a>
+        </li>
+        <li>
+          <a href="">Contact us</a>
+        </li>
+        <li>
+          <a href="">About us</a>
+        </li>
+      </ul>
+      <hr />
+      <p>
+        <center>© 2024, TutorMeister, Inc.</center>
+      </p>
+    </div>
+  </body>
+</html>
