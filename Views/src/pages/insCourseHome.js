@@ -1,8 +1,10 @@
 import React from 'react';
-import './css/stdHome.css'; // Import your CSS file
+import './css/stdCourse.css'; // Import your CSS file
 import logo from './img/logo.jpg'; // Update the path as needed
 import coursesImage from './img/myCourses.jpg'; // Update the path as needed
-import maths from './img/maths.png';
+import student1 from './img/student1.jpg';
+import student2 from './img/student2.jpg';
+import student3 from './img/student3.jpg';
 
 const InstructorCourseHome = () => {
   return (
@@ -33,14 +35,30 @@ const InstructorCourseHome = () => {
       <center><input type="text" className="search" placeholder="Search" /></center>
 
       <section className="container content-section">
-        <div className="items">
-          <div className="item">
-            <img className="item-image" src={maths} alt="" />
-            <span className="item-title">Mathematics</span>
-            <div className="item-details">
-              <p>Grade: 9 <br /> Instructor: James Wicked </p>
+        <div className="itemsIns">
+          <div className="itemIns">
+            <img className="itemIns-image" src={student1} alt="" />
+            <span className="itemIns-title">Amelia Charlotte</span>
+            <div className="itemIns-details">
+              <p>Grade: 9 <br /> <b>Mathematics</b> </p>
               <button className="btn item-button" type="button">View</button>
-            </div>
+            </div> 
+          </div>
+          <div className="itemIns">
+            <img className="itemIns-image" src={student2} alt="" />
+            <span className="itemIns-title">Anne Shafa</span>
+            <div className="itemIns-details">
+              <p>Grade: 10 <br /> <b>Science</b> </p>
+              <button className="btn item-button" type="button">View</button>
+            </div> 
+          </div>
+          <div className="itemIns">
+            <img className="itemIns-image" src={student3} alt="" />
+            <span className="itemIns-title">Eric Williams</span>
+            <div className="itemIns-details">
+              <p>Grade: 8 <br /><b>English</b></p>
+              <button className="btn item-button" type="button">View</button>
+            </div> 
           </div>
           {/* Repeat similar structure for other courses */}
         </div>

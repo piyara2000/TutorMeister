@@ -13,6 +13,10 @@ import InstructorSignUp from './pages/insSignUp';
 import StudentLogin from './pages/studentLogin';
 import StudentCourseHome from './pages/studentCourseHome';
 import StudentAccountEditPage from "./pages/studentAccountEdit";
+import InstructorAccountEditPage from "./pages/instructorAccountEdit";
+import AcceptStudent from './pages/acceptStudent';
+import ReviewStudent from "./pages/reviewStudent";
+
 
 function App() {
   return (
@@ -23,6 +27,7 @@ function App() {
           <Route exact path="/student-register" element={<StudentSignUp />}/>
           <Route exact path="/student-register-page02" element={<StudentSignUpPage02 />}/>
           <Route exact path="/student-account-edit" element={<StudentAccountEditPage />}/>
+          <Route exact path="/instructor-account-edit" element={<InstructorAccountEditPage />}/>
           <Route exact path="/student-home" element={<StudentHome />}/>
           <Route exact path="/create-course" element={<CreateCourse />}/>
           <Route exact path="/instructor-home" element={<InstructorHome />}/>
@@ -31,6 +36,9 @@ function App() {
           <Route exact path="/instructor-register" element={<InstructorSignUp />}/>
           <Route exact path="/student-login" element={<StudentLogin />}/>
           <Route exact path="/student-course-home" element={<StudentCourseHome />}/>
+          <Route exact path="/accept-student" element={<AcceptStudent />}/>
+          <Route exact path="/review-student" element={<ReviewStudent />}/>
+
         </Routes>
       </div>
     </BrowserRouter>

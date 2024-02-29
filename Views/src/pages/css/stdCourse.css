@@ -3,6 +3,7 @@ a:hover{
     transition: .5s;
 }
 
+
 .btn{
     font-size: 12px;
     text-align: center;
@@ -10,10 +11,10 @@ a:hover{
     padding: .67em .67em;
     cursor: pointer;
     color: black;
-    background-color: #86C232;
+    background-color: white;
     border: none;
     border-radius: .3em;
-    border: 1px solid #86C232;
+    border: 1px solid white;
 }
 .btn:hover{
     background-color: white;
@@ -95,6 +96,7 @@ img.home-logo-img{
     width: 280px;
     border-radius: 20px;
     padding: 0px 0px 0px 0px;
+    
 }
 
 .item-title{
@@ -114,6 +116,166 @@ img.home-logo-img{
     justify-content: space-around;
     height: 300px;
  
+}
+
+.itemIns{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding: 25px 55px 25px 55px;
+    margin: 20px;
+    background-color: #86C232;
+    border-radius: 10px;
+}
+
+
+
+.itemIns-details{
+    align-items: center;
+    padding: 1px;
+}
+
+.itemIns-image{
+    height: 200px;
+    width: 200px;
+    border-radius: 150px;
+    padding: 0px 0px 0px 0px;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    
+}
+
+.itemIns-title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #222629;
+    margin-bottom: 1px;
+  
+}
+.itemsIns{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 300px;
+ 
+}
+
+
+ 
+
+
+.button.accept-btn {
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: .3em;
+    width: 70%;
+    height: 40px;
+}
+.button.reject-btn {
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    padding: .50em .50em;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: .3em;
+    width: 70%;
+    height: 40px;
+
+}
+
+
+.profile-details{
+    align-items: center;
+    padding: 1px;
+}
+
+.profile-image{
+    height: 180px;
+    width: 180px;
+    border-radius: 150px;
+    padding: 0px 0px 0px 0px;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    
+}
+
+.profile-title{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #222629;
+    margin-bottom: 1px;
+  
+}
+.containerA{
+    padding-top: 20px;
+    padding-bottom:30px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    margin: auto;
+
+}
+.wrapper{
+    padding-top: 10px;
+    padding: 10px;
+    background: #86C232;
+    max-width:1500px;
+    margin: auto;
+    display: flex;
+    
+}
+.wrapper .profile{
+    width:50%
+}
+.wrapper form{
+    width: 50%;
+    padding-top: 36px;
+    padding-left: 45px;
+    padding-right: 45px;  
+}
+.form-group{
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-group input{
+    width:400px;
+    height: 30px;
+}
+.form-control{
+    display: block;
+    width: 100px;
+    height: 20px;
+    padding-right: 20px;
+    margin-bottom: 25px;
+}
+.value{
+    width: 50px;
+    margin: 1px 20px 0;
+    padding:5px 5px;
+    border-color: #222629;
+    text-align: center;
+}
+.form-group textarea{
+    width:400px;
+    height:140px;
+
 }
 
 .navigationBar ul{
@@ -143,6 +305,7 @@ img.home-logo-img{
     margin:0px auto;
     width:100px;
     margin-bottom: 10px;
+    
 }
 .rating >*{
     float: right;
@@ -179,6 +342,53 @@ img.home-logo-img{
 }
 .rating input:checked+label::after,
 .rating input:checked~label::after{
+    content:"★";
+    color: #f9bf3b;
+    text-shadow: 0 0 20px #f9bf3b;
+}
+.ratingA{
+    margin:0px auto;
+    width:100px;
+    border-width: 1.5px;
+    padding: 3px 15px 3px 15px;
+    background-color: white;
+    border-style: solid;
+}
+.ratingA >*{
+    float: right;
+}
+.ratingA label{
+    
+    cursor: pointer;
+    height:40px;
+    width:20px;
+    display: block;
+    position: relative;
+}
+.ratingA label::after{
+    transition: all 0.4s ease-out;
+    content: ' ☆';
+    font-family: fontAwesome;
+    position: absolute;
+    color:#444;
+    top:0;
+    left:0;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    font-size: 30px;
+    -webkit-animation: 1s pulse ease;
+    animation:1s pluse ease;
+}
+.ratingA label:hover::after{
+    color: #5e5e5e;
+    text-shadow: 0 0 15px #5e5e5e;
+}
+.ratingA input{
+    display: none;
+}
+.ratingA input:checked+label::after,
+.ratingA input:checked~label::after{
     content:"★";
     color: #f9bf3b;
     text-shadow: 0 0 20px #f9bf3b;
