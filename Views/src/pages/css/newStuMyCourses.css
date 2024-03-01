@@ -1,39 +1,45 @@
-.profile-container {
-  /* flex-direction: column; */
-  margin: 5%;
+.containerCourse {
+  display: flex;
+  justify-content: right;
+  text-align: justify;
+  align-items: center;
+  padding: 100px;
 }
 
-.profile-item {
-  margin-bottom: 16px;
-  flex-direction: row;
+.containerCourse-formCourse {
+  width: 90px;
 }
 
-.profile-itemdate{
-  margin-top: 20px;
-}
-.label {
-  font-weight: bold;
+.formCourse {
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid black;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 6%;
+  border-radius: 8px;
+  color: #000000;
 }
 
 .flexRate {
   text-align: center;
 }
-.review {
-  padding-left: 5%;
+
+h4 {
+  font-size: 20px;
+  padding-left: 0%;
   padding-right: 5%;
   text-align: left;
-  text-align: justify;
+  font-weight: bolder;
 }
-.rate-btn {
-  background-color: #86c232;
-  color: #000000;
-  padding: 10px 50px;
-  border-radius: 4px;
-  cursor: pointer;
-  justify-content: space-between;
+.label {
+  font-weight: bold;
 }
-.rate-btn:hover {
-  background-color: white;
+.labelpro{
+  align-items: center;
+  margin-left: 20px;
+  font-weight: bolder;
 }
 .notify-btns {
   padding: 10px 50px;
@@ -48,47 +54,6 @@
  
 }
 
-h4 {
-  font-size: 20px;
-  padding-left: 0%;
-  padding-right: 5%;
-  text-align: left;
-  font-weight: bolder;
-}
-.containerCourse-formCourse {
-  width: 90px;
-}
-.containerCourse {
-  display: flex;
-  justify-content: right;
-  text-align: justify;
-  align-items: center;
-  padding: 100px;
-}
-
-.formCourse {
-  width: 100%;
-  background: #ffffff;
-  border: 2px solid black;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 6%;
-  border-radius: 8px;
-  color: #000000;
-}
-video {
-  display: block;
-  width: 95%;
-  padding-left: 0%;
-  padding-right: 5%;
-}
-
-.profile-image {
-  margin-left: 45px;
-  margin-top: 10px;
-}
-
 .profile {
   width: 650px;
   height: 380px;
@@ -96,6 +61,60 @@ video {
   border-radius: 4%;
   margin-right: 200px;
   border: 2px solid black;
+}
+
+.profile1 {
+  width: 650px;
+  height: 280px;
+  align-self: start;
+  border-radius: 4%;
+  margin-right: 200px;
+  border: 2px solid black;
+}
+
+.profile-container {
+  margin: 5%;
+}
+
+.profile-image {
+  margin-left: 45px;
+  margin-top: 10px;
+}
+
+.profile-item {
+  margin-bottom: 16px;
+  flex-direction: row;
+}
+
+.profile-itemdate{
+  margin-top: 20px;
+}
+
+.rate-btn {
+  background-color: #86c232;
+  color: #000000;
+  padding: 10px 50px;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.rate-btn:hover {
+  background-color: white;
+}
+
+.review {
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+  text-align: justify;
+}
+
+video {
+  display: block;
+  width: 95%;
+  padding-left: 0%;
+  padding-right: 5%;
 }
 
 /* footer */

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./css/newStuMyCourses.css";
 import englishIns from "./img/englishIns.jpg";
-import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css'; // Import the styles
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css"; // Import the styles
 
 const NewStuMyCourses = () => {
   const initializeDatePicker = () => {
@@ -30,7 +30,6 @@ const NewStuMyCourses = () => {
           
         `}
       </style>
-      
 
       <div className="containerCourse">
         <div className="profile">
@@ -53,18 +52,13 @@ const NewStuMyCourses = () => {
               />
             </div>
             <div className="profile-itemdate">
-            <span className="labelDate">Upcoming Sessions</span>
-            <input type="text" id="datepicker" placeholder="--" />
-          </div>
+              <span className="labelDate">Upcoming Sessions</span>
+              <input type="text" id="datepicker" placeholder="--" />
+            </div>
           </div>
         </div>
-        {/* <div className="profile-itemdatepicker">
-            <span className="labelDate">Upcoming Sessions:</span>
-            <input type="text" id="datepicker" placeholder="--" />
-          </div> */}
-    
+
         <div className="container-formCourse">
-          
           <form action="" className="formCourse">
             <div className="heading1">
               <h4>Meet The Tutor</h4>
