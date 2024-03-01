@@ -53,7 +53,7 @@ const InstructorLogin = () => {
                   type="button"
                   value="Log-In"
                   className="button login-btn1"
-                  onClick={() => (window.location.href = "instructorHome.html")}
+                  onClick={() => (window.location.href = "/instructor-register")}
                 />
                 <br />
               </div>
@@ -76,7 +76,7 @@ const InstructorLogin = () => {
                   type="button"
                   value="Sign-Up as a student"
                   className="button signup-btn"
-                  onClick={() => (window.location.href = "studentSignUp.html")}
+                  onClick={() => (window.location.href = "/student-register")}
                 />
               </div>
               <div>
@@ -85,7 +85,7 @@ const InstructorLogin = () => {
                   value="Sign-Up as an instructor"
                   className="button signup-btn"
                   onClick={() =>
-                    (window.location.href = "instructorSignUp.html")
+                    (window.location.href = "/instructor-register")
                   }
                 />
               </div>

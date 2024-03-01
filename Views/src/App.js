@@ -16,6 +16,8 @@ import StudentAccountEditPage from "./pages/studentAccountEdit";
 import InstructorAccountEditPage from "./pages/instructorAccountEdit";
 import AcceptStudent from './pages/acceptStudent';
 import ReviewStudent from "./pages/reviewStudent";
+import MyCourses from "./pages/myCourses";
+import NewStudentMyCourses from "./pages/newStuMyCourses";
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
           <Route exact path="/student-course-home" element={<StudentCourseHome />}/>
           <Route exact path="/accept-student" element={<AcceptStudent />}/>
           <Route exact path="/review-student" element={<ReviewStudent />}/>
+          <Route exact path="/my-courses" element={<MyCourses />}/>
+          <Route exact path="/New-Student-my-courses" element={<NewStudentMyCourses />}/>
 
         </Routes>
       </div>
