@@ -3,6 +3,7 @@
   <head>
     <title>Login | TutorMeister</title>
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg">
     <script>
       function redirectToSignUp(type) {
         if (type === 'student') {
@@ -34,7 +35,6 @@
               name="username"
               class="inputbox details login-details"
               placeholder="Username or email"
-              onchange="setEmail(this.value)"
             />
           </center>
           <br />
@@ -45,7 +45,6 @@
               name="password"
               class="inputbox details login-details"
               placeholder="Password"
-              onchange="setPassword(this.value)"
             />
           </center>
           <br />
@@ -56,7 +55,6 @@
                 type="submit"
                 value="Log-In"
                 class="button login-btn1"
-                onclick="handleLogin()"
               />
             </div>
             <div>
