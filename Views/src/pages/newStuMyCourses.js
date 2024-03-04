@@ -3,6 +3,8 @@ import "./css/newStuMyCourses.css";
 import englishIns from "./img/englishIns.jpg";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css"; // Import the styles
+import NavBar from "./NavBarStudent";
+import Footer from "./Footer";
 
 const NewStuMyCourses = () => {
   const initializeDatePicker = () => {
@@ -22,15 +24,12 @@ const NewStuMyCourses = () => {
       <style>
         {`
           body {
-            
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+            background-color: #9EE493;
           }
           
         `}
       </style>
-
+      <NavBar/>
       <div className="containerCourse">
         <div className="profile">
           <img className="profile-image" src={englishIns} alt="" />
@@ -141,24 +140,7 @@ const NewStuMyCourses = () => {
           </form>
         </div>
       </div>
-
-      <div className="home-footer">
-        <ul>
-          <li>
-            <a href="">Help desk</a>
-          </li>
-          <li>
-            <a href="">Contact us</a>
-          </li>
-          <li>
-            <a href="">About us</a>
-          </li>
-        </ul>
-        <hr />
-        <p>
-          <center> © 2023, TutorMeister, Inc.</center>
-        </p>
-      </div>
+      <Footer/>
     </>
   );
 };

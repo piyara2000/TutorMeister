@@ -6,16 +6,12 @@ import homeImage from './img/home.jpg'; // Import home background image
 import maths from './img/maths.png';
 import science from './img/science.jpg';
 import english from './img/english.jpeg';
+import NavBar from './NavBarStudent';
+import Footer from './Footer';
 
 const StudentHome = () => {
   return (
     <>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Home</title>
-      <link rel="stylesheet" href="./css/stdHome.css" />
-
       <style>
         {`
           body {
@@ -26,21 +22,8 @@ const StudentHome = () => {
           }
         `}
       </style>
-
-      <header>
-        <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-        <div className="homeLogo">TutorMeister</div>
-        <nav className="navigationBar">
-          <ul>
-            <li><a href="studentHome.js">Home</a></li>
-            <li><a href="studentMyCourse.html">My Courses</a></li>
-            <li><a href="">Account</a></li>
-            <li><a href="">Notifications</a></li>
-            <li><a href="">Cart</a></li>
-          </ul>
-        </nav>
-      </header>
-
+      
+      <NavBar/>
       <div className='search-margin'>
         <input type="text" className="instructor-search" id = "search" placeholder="Search" />
       </div>
@@ -127,10 +110,9 @@ const StudentHome = () => {
               <button className="btn item-button" type="button">View</button>
             </div>
           </div>
-          
-          {/* Repeat similar blocks for other courses */}
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

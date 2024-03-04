@@ -2,6 +2,7 @@ import React from "react";
 import "./css/stdSignUp.css";
 import logo from "./img/RectangleLogo.png"; // Update the path as needed
 import loginImage from "./img/login.jpg"; // Update the path as needed
+import Footer from "./Footer";
 
 const InstructorLogin = () => {
   return (
@@ -94,24 +95,7 @@ const InstructorLogin = () => {
           </div>
         </form>
       </div>
-
-      <div className="home-footer">
-        <ul>
-          <li>
-            <a href="">Help desk</a>
-          </li>
-          <li>
-            <a href="">Contact us</a>
-          </li>
-          <li>
-            <a href="">About us</a>
-          </li>
-        </ul>
-        <hr />
-        <p>
-          <center> © 2023, TutorMeister, Inc.</center>
-        </p>
-      </div>
+      <Footer/>
     </>
   );
 };
