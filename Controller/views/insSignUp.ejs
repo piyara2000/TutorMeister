@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Instructor Sign-Up | TutorMeister</title>
+    <link rel="stylesheet" href="css/signUp.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg">
+  </head>
+  <body>
+    <div class="containerStd">
+      <form method="post" class="form">
+        <div class="row">
+          <div class="flex">
+            <img class="home-logo-img-stSignup" src="img/RectangleLogo.png" />
+          </div>
+          <h3 class="heading-stSignup">Sign-Up As an Instructor</h3>
+          <div class="flex1">
+            <div>
+              <input
+                type="text"
+                name="firstname"
+                class="inputbox name"
+                placeholder="First Name"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="lastname"
+                class="inputbox name"
+                placeholder="Last Name"
+              />
+            </div>
+          </div>
+          <br />
+          <center>
+            <input
+              type="text"
+              name="username"
+              class="inputbox details"
+              placeholder="User Name"
+            />
+          </center>
+          <br />
+          <center>
+            <input type="text" name="country" class="inputbox details" placeholder="Country" />
+          </center>
+          <br />
+          <center>
+            <input type="email" name="email" class="inputbox details" placeholder="Email" />
+          </center>
+          <br />
+          <center>
+            <input
+              type="password"
+              name="password"
+              class="inputbox details"
+              placeholder="Create password"
+            />
+          </center>
+          <br />
+          <div class="flex3">
+            <div class="flexBox">
+              <input
+                type="button"
+                value="Sign-Up as a student"
+                class="button signInstructor-btn"
+                onclick="window.location.href='/student-register'"
+              />
+            </div>
+            <div class="flexBox">
+              <input
+                type="submit"
+                value="Register"
+                class="button register-btn"
+              />
+            </div>
+          </div>
+          <div class="flex4">
+            <div>
+              <input
+                type="button"
+                value="Already have an account? Log-In"
+                class="button login-btn"
+                onclick="window.location.href='/login'"
+              />
+            </div>
+          </div>
+          <br />
+        </div>
+      </form>
+    </div>
+    <div class="home-footer">
+    <ul>
+      <li><a href="">Help desk</a></li>
+      <li><a href="">Contact us</a></li>
+      <li><a href="">About us</a></li>
+    </ul>
+    <hr />
+    <p><center>© 2024, TutorMeister, Inc.</center></p>
+  </div>
+  </body>
+</html>
