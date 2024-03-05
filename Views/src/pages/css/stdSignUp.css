@@ -61,7 +61,7 @@
     text-decoration: underline;
     text-align: center;
     cursor: pointer;
-    background-color: #86C232;
+    background-color: #9EE493;
     border: none;
     width: 100%;
 }
@@ -211,7 +211,7 @@
 
 .form{
     width: 550px;
-    background: #86C232;
+    background: #9EE493;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
     padding-bottom: 20px;
     padding-top: 20px;
@@ -220,7 +220,7 @@
 
 .form2 {
     width: 550px;
-    background: #86C232;
+    background: #9EE493;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
     padding-bottom: 5%;
     padding-top: 5%;

@@ -1,6 +1,8 @@
 import React from "react";
 import "./css/myCourses.css";
 import englishIns from "./img/englishIns.jpg";
+import NavBar from "./NavBarStudent";
+import Footer from "./Footer";
 // import logo from "./img/RectangleLogo.png"; // Update the path as needed
 // import loginImage from "./img/login.jpg"; // Update the path as needed
 
@@ -10,14 +12,11 @@ const myCourses = () => {
       <style>
         {`
           body {
-           
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+            background-color: #9EE493;
           }
         `}
       </style>
-      
+      <NavBar/>
       <div className="containerCourse">
         <div className="profile1">
           <img className="profile-image" src={englishIns} alt="" />
@@ -111,24 +110,7 @@ const myCourses = () => {
           </form>
         </div>
       </div>
-
-      <div className="home-footer">
-        <ul>
-          <li>
-            <a href="">Help desk</a>
-          </li>
-          <li>
-            <a href="">Contact us</a>
-          </li>
-          <li>
-            <a href="">About us</a>
-          </li>
-        </ul>
-        <hr />
-        <p>
-          <center> © 2023, TutorMeister, Inc.</center>
-        </p>
-      </div>
+      <Footer/>
     </>
   );
 };

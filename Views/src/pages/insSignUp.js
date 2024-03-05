@@ -2,6 +2,7 @@ import React from 'react';
 import './css/stdSignUp.css';
 import logonew from './img/Rectangle 12.png'
 import loginImage from './img/login.jpg';
+import Footer from './Footer';
 
 const InstructorSignUp = () => {
   return (
@@ -85,15 +86,7 @@ const InstructorSignUp = () => {
           </div>
         </form>
       </div>
-      <div className="home-footer">
-        <ul>
-          <li><a href="">Help desk</a></li>
-          <li><a href="">Contact us</a></li>
-          <li><a href="">About us</a></li>
-        </ul>
-        <hr />
-        <p><center>© 2024, TutorMeister, Inc.</center></p>
-      </div>
+      <Footer/>
     </>
   );
 };

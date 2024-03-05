@@ -2,15 +2,12 @@ import React from "react";
 import './css/accountEditPage.css';
 import loginImage from './img/login.jpg';
 import science from './img/science.jpg'
+import NavBar from "./NavBarInstructor";
+import Footer from "./Footer";
 
 const instructorAccountEditPage = () => {
     return (
         <>
-            <meta charSet="UTF-8" />
-            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Sign-Up</title>
-            <link rel="stylesheet" href="css/stdSignUp.css" />
             <style>
                 {`
           body {
@@ -21,6 +18,8 @@ const instructorAccountEditPage = () => {
           }
         `}
             </style>
+
+            <NavBar/>
             <div className="containerStdAcc">
                 <form action="" className="form3">
                     <div className="row">
@@ -89,6 +88,7 @@ const instructorAccountEditPage = () => {
                     </div>
                 </form>
             </div>
+            <Footer/>
         </>
     );
 };

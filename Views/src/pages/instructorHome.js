@@ -5,6 +5,8 @@ import homeImage from './img/home.jpg';
 import maths from './img/maths.png';
 import science from './img/science.jpg';
 import english from './img/english.jpeg';
+import NavBar from './NavBarInstructor';
+import Footer from './Footer';
 
 const InstructorHome = () => {
   return (
@@ -19,19 +21,8 @@ const InstructorHome = () => {
           }
         `}
       </style>
-      <header>
-        <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-        <div className="homeLogo">TutorMeister</div>
-        <nav className="navigationBar">
-          <ul>
-            <li><a href="instructorHome.html">Home</a></li>
-            <li><a href="instructorMyCourses.html">My Courses</a></li>
-            <li><a href="">Account</a></li>
-            <li><a href="">Notifications</a></li>
-          </ul>
-        </nav>
-      </header>
-
+      
+      <NavBar/>
       <div className='search-margin'>
         <input type="text" className="instructor-search" id = "search" placeholder="Search" />
       </div>
@@ -122,16 +113,7 @@ const InstructorHome = () => {
           {/* Repeat similar blocks for other courses */}
         </div>
       </section>
-
-      {/* <div className="home-footer">
-        <ul>
-          <li><a href="">Help desk</a></li>
-          <li><a href="">Contact us</a></li>
-          <li><a href="">About us</a></li>
-        </ul>
-        <hr />
-        <p><center>© 2024, TutorMeister, Inc.</center></p>
-      </div> */}
+      <Footer/>
     </>
   );
 };

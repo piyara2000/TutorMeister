@@ -5,6 +5,8 @@ import coursesImage from './img/myCourses.jpg'; // Update the path as needed
 import student1 from './img/student1.jpg';
 import student2 from './img/student2.jpg';
 import student3 from './img/student3.jpg';
+import NavBar from './NavBarInstructor';
+import Footer from './Footer';
 
 const InstructorCourseHome = () => {
   return (
@@ -19,20 +21,12 @@ const InstructorCourseHome = () => {
           }
         `}
       </style>
-      <header>
-        <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-        <div className="homeLogo">TutorMeister</div>
-        <nav className="navigationBar">
-          <ul>
-            <li><a href="instructorHome.html">Home</a></li>
-            <li><a href="instructorMyCourses.html">My Courses</a></li>
-            <li><a href="">Account</a></li>
-            <li><a href="">Notifications</a></li>
-          </ul>
-        </nav>
-      </header>
+      
+      <NavBar/>
+      <div className='search-margin'>
+        <input type="text" className="instructor-search" id = "search" placeholder="Search" />
+      </div>
 
-      <center><input type="text" className="search" placeholder="Search" /></center>
 
       <section className="container content-section">
         <div className="itemsIns">
@@ -63,16 +57,7 @@ const InstructorCourseHome = () => {
           {/* Repeat similar structure for other courses */}
         </div>
       </section>
-
-      <div className="home-footer">
-        <ul>
-          <li><a href="">Help desk</a></li>
-          <li><a href="">Contact us</a></li>
-          <li><a href="">About us</a></li>
-        </ul>
-        <hr />
-        <p><center>© 2023, TutorMeister, Inc.</center></p>
-      </div>
+      <Footer/>
     </>
   );
 };

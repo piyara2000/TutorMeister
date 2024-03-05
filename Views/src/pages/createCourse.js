@@ -4,11 +4,12 @@ import './css/stdHome.css';
 import './css/createCourse.css';
 import logo from './img/logo.jpg'; // Update the path as needed
 import homeImage from './img/home.jpg';
+import NavBar from './NavBarInstructor';
+import Footer from './Footer';
 
 const CreateCourse = () => {
   return (
     <>
-      <header>
       <style>
         {`
           body {
@@ -19,18 +20,8 @@ const CreateCourse = () => {
           }
         `}
       </style>
-      <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-        <div className="homeLogo">TutorMeister</div>
-        <nav className="navigationBar">
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">My Courses</a></li>
-            <li><a href="">Account</a></li>
-            <li><a href="">Notifications</a></li>
-          </ul>
-        </nav>
-      </header>
-
+      
+      <NavBar/>
       <div className="containterCreateCourse">
         <form action="" className="formCreate">
           <h3 className="heading">Create A Course</h3>
@@ -136,6 +127,7 @@ const CreateCourse = () => {
           </div>
         </form>
       </div>
+      <Footer/>
     </>
   );
 };

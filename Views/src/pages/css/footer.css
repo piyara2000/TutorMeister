@@ -1,0 +1,39 @@
+.box{
+    background: #222629;
+    position: absolute;
+    width: 100%;
+}
+
+.footerCntainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 
+                            minmax(300px, 1fr));
+    grid-gap: 20px;
+    
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(auto-fill, 
+                            minmax(200px, 1fr));
+    }
+}
+
+.footerLink{
+    color: #fff;
+    margin-bottom: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
+    
+    &:hover {
+        color: #9EE493;
+        transition: 200ms ease-in;
+    }
+}

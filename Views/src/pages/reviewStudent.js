@@ -3,6 +3,8 @@ import './css/stdCourse.css'; // Import your CSS file
 import logo from './img/logo.jpg'; // Update the path as needed
 import coursesImage from './img/myCourses.jpg'; // Update the path as needed
 import student1 from './img/student1.jpg';
+import NavBar from './NavBarInstructor';
+import Footer from './Footer';
 
 
 const ReviewStudent = () => {
@@ -18,21 +20,8 @@ const ReviewStudent = () => {
           }
         `}
       </style>
-      <header>
-        <img className="home-logo-img" src={logo} alt="HomePageLogo" />
-        <div className="homeLogo">TutorMeister</div>
-        <nav className="navigationBar">
-          <ul>
-            <li><a href="instructorHome.html">Home</a></li>
-            <li><a href="instructorMyCourses.html">My Courses</a></li>
-            <li><a href="">Account</a></li>
-            <li><a href="">Notifications</a></li>
-          </ul>
-        </nav>
-      </header>
 
-      <center><input type="text" className="search" placeholder="Search" /></center>
-
+      <NavBar/>
       <section className="containerA content-section">
         <div className="wrapper">
           <div className="profile">
@@ -82,17 +71,8 @@ const ReviewStudent = () => {
         </div>
        
       </section>
-      
 
-      <div className="home-footer">
-        <ul>
-          <li><a href="">Help desk</a></li>
-          <li><a href="">Contact us</a></li>
-          <li><a href="">About us</a></li>
-        </ul>
-        <hr />
-        <p><center>© 2023, TutorMeister, Inc.</center></p>
-      </div>
+      <Footer/>
     </>
   );
 };
