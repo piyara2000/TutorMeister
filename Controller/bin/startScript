@@ -13,7 +13,7 @@ var utils = require("../common/utils");
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || utils.getConfigByConfigName("PORT"));
+var port = normalizePort(5000);
 app.set('port', port);
 
 /**

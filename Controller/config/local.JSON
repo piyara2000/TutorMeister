@@ -1,7 +1,6 @@
 {
-    "PORT": "5000",
-    "host": "localhost",
-    "user": "TutorMeister",
-    "password": "TutorMeister",
+    "host": "tmdb.cda06mo2gzpi.eu-north-1.rds.amazonaws.com",
+    "user": "admin",
+    "password": "admin123",
     "database": "tmdb"
 }
