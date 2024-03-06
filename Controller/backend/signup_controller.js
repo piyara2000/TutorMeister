@@ -134,11 +134,11 @@ exports.stuSignUpPost = (req, res) => {
               email,
               eduqual,
               learningStyle,
+              learningPace,
               isGroup,
               learningMode,
               additionalText,
               encryptedpwd,
-              learningPace,
             ],
             (err, rows) => {
               if (err) {
