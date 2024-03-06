@@ -4,12 +4,35 @@
     <title>Login | TutorMeister</title>
     <link rel="stylesheet" href="css/login.css" />
     <link rel="icon" href="img/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="/css/footer.css" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container-login {
+        flex: 1;
+      }
+    </style>
     <script>
       function redirectToSignUp(type) {
         if (type === 'student') {
-          window.location.href = '/student-signup';
+          window.location.href = '/student-register';
         } else if (type === 'instructor') {
-          window.location.href = '/instructor-signup';
+          window.location.href = '/instructor-register';
+        }
+      }
+
+      function validateLoginForm() {
+        var username = document.forms["loginForm"]["username"].value;
+        var password = document.forms["loginForm"]["password"].value;
+
+        if (username === "" || password === "") {
+          alert("Both username/email and password are required");
+          return false;
         }
       }
     </script>
@@ -17,7 +40,7 @@
 
   <body>
     <div class="container-login">
-      <form action="" method="post" class="form login-form">
+      <form action="" method="post" class="form login-form"  name="loginForm" onsubmit="return validateLoginForm()">
         <div class="row">
           <div class="flex">
             <div>
@@ -31,7 +54,7 @@
           <h3 class="heading">Log-In</h3>
           <center>
             <input
-              type="email"
+              type="text"
               name="username"
               class="inputbox details login-details"
               placeholder="Username or email"
@@ -59,7 +82,7 @@
             </div>
             <div>
               <input
-                type="submit"
+                type="button"
                 value="Forgot your password?"
                 class="button forgot-password"
                 onclick="window.location.href = ''"
@@ -67,6 +90,7 @@
               <br />
             </div>
           </div>
+          
           <p>
             <center>Not a member?</center>
           </p>
@@ -81,24 +105,7 @@
         </div>
       </form>
     </div>
-
-    
-    <div class="home-footer">
-      <ul>
-        <li>
-          <a href="">Help desk</a>
-        </li>
-        <li>
-          <a href="">Contact us</a>
-        </li>
-        <li>
-          <a href="">About us</a>
-        </li>
-      </ul>
-      <hr />
-      <p>
-        <center>© 2024, TutorMeister, Inc.</center>
-      </p>
-    </div>
+    <%- include('footer.ejs') %>
   </body>
+
 </html>

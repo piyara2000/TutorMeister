@@ -98,11 +98,7 @@ body {
     justify-content: center;
     align-items: center; 
     padding: 20px;
-    position: absolute;
-    left: 100px;
-    right: 100px;
-    bottom: 100px;
-    top: 100px;
+    margin: 100px 100px 100px 100px;
 }
 
 .containerStd {
@@ -344,4 +340,10 @@ img.home-logo-img-stSignup {
     list-style-type: none;
     padding-left: 250px;
     font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .container-login {
+        margin: 50px 20px; /* Adjust margins for smaller screens */
+    }
 }

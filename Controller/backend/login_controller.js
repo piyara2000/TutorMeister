@@ -33,14 +33,11 @@ exports.loginPost = (req, res) => {
         if (errInstructor) {
           res.send(errInstructor.stack);
         } else {
-          
           if (rowsInstructor.length) {
-            
             const pwdFromDb = rowsInstructor[0].password;
             const decryptedValue = utils.getDecrptedValue(pwdFromDb);
-            
+
             if (decryptedValue == password) {
-              
               res.redirect("/instructor-home");
               connection.end();
               return;
