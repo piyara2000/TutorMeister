@@ -33,4 +33,7 @@ jobs:
 
           # Start the Node.js application with the specified version
           npm start &
+
+          # Wait for the background process to complete
+          wait
           exit 0
