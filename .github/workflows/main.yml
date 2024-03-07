@@ -33,5 +33,4 @@ jobs:
 
           # Start the Node.js application with the specified version
           npm start &
-          
           exit 0
