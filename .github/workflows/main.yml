@@ -17,6 +17,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Deploy to EC2
+      id: deploy
       uses: appleboy/ssh-action@master
       with:
         host: ec2-13-48-58-172.eu-north-1.compute.amazonaws.com
@@ -32,8 +33,11 @@ jobs:
           kill -9 $(lsof -t -i:5000) || true
 
           # Start the Node.js application with the specified version
-          npm start &
+          npm start > /dev/null 2>&1 &
+
+          # Capture the PID of the background process
+          echo $! > deploy_pid
 
           # Wait for the background process to complete
-          wait
+          wait $(cat deploy_pid)
           exit 0
