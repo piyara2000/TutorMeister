@@ -29,15 +29,13 @@ jobs:
           git pull origin main
           npm install
           
-          # Find and kill any process using port 5000
+
           kill -9 $(lsof -t -i:5000) || true
 
-          # Start the Node.js application with the specified version
           npm start > /dev/null 2>&1 &
 
-          # Capture the PID of the background process
+
           echo $! > deploy_pid
 
-          # Wait for the background process to complete
-          wait $(cat deploy_pid)
+          sleep 10
           exit 0
