@@ -16,10 +16,10 @@ jobs:
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
-        EC2_HOST: ec2-13-48-58-172.eu-north-1.compute.amazonaws.com
-        EC2_USERNAME: ec2-user
-        EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
-        EC2_SSH_PORT: 22
+        host: ec2-13-48-58-172.eu-north-1.compute.amazonaws.com
+        username: ec2-user
+        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        port: 22
         script: |
           cd /home/ec2-user/TutorMeister/Controller
           git pull origin main
