@@ -23,7 +23,7 @@ body {
 }
 
 .button.forgot-password {
-    background-color: #86C232;
+    background-color: #9EE493;
     color: #000000;
     font-weight: bold;
     text-decoration: none;
@@ -31,7 +31,7 @@ body {
 }
 
 .button.forgot-password:hover {
-    background-color: #86C232;
+    background-color: #9EE493;
     border: none;
     text-decoration: underline;
 }
@@ -63,11 +63,12 @@ body {
 }
 
 .button.login-btn {
+    color: #000000;
     font-size: 12px;
     text-decoration: underline;
     text-align: center;
     cursor: pointer;
-    background-color: #86C232;
+    background-color: #9EE493;
     border: none;
     width: 100%;
 }
@@ -85,7 +86,7 @@ body {
 }
 
 .button.login-btn:hover {
-    background-color: #86C232;
+    background-color: #9EE493;
     color: white;
     /* border: 1px solid black; */
 }
@@ -217,7 +218,7 @@ body {
 
 .form{
     width: 550px;
-    background: #86C232;
+    background: #9EE493;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
     padding-bottom: 20px;
     padding-top: 20px;
@@ -226,7 +227,7 @@ body {
 
 .form2 {
     width: 550px;
-    background: #86C232;
+    background: #9EE493;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
     padding-bottom: 5%;
     padding-top: 5%;
@@ -240,7 +241,6 @@ body {
 }
 
 .heading-stSignup {
-    font-family: Verdana;
     font-weight: bold;
     text-align: center;
     color: black;
@@ -248,7 +248,6 @@ body {
 }
 
 .homeLogoSignUp {
-    font-family: Verdana;
     font-size: 30px;
     text-decoration: underline;
     line-height: 30px;
@@ -267,7 +266,6 @@ img.home-logo-img-stSignup {
 }
 
 .label-eduQual {
-    font-family: Verdana;
     font-weight: bold;
     text-align: center;
     color: black;
@@ -313,34 +311,4 @@ img.home-logo-img-stSignup {
 
 .signup-btns{
     gap: 25px;
-}
-
-/* footer */
-.home-footer{
-    height: 60px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    padding-top: 1px;
-    height: 90px;
-    background-color:#CAD2D7;
-}
-
-.home-footer a{
-    font-size: 16px;
-    color: #000000;
-
-}
-.home-footer p{
-    font-size: 16px;
-}
-
-.home-footer ul{
-    display: flex;
-}
-
-.home-footer li{
-    list-style-type: none;
-    padding-left: 250px;
-    font-size: 15px;
 }

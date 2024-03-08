@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Sign-Up | TutorMeister</title>
+    <link rel="stylesheet" href="css/createCourse.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+  </head>
+<body>
+    <div class="containterCreateCourse">
+      <form action="" class="formCreate" method="post">
+        <h3 class="heading">Create A Course</h3>
+        <div class="row">
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Course name:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <input 
+                type="text" 
+                class="richText" 
+                id="courseName" 
+                name="courseName"/>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Subject:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <input 
+                type="text" 
+                class="richText" 
+                id="Subject" 
+                name="subject" />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Educational Level:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <select 
+                id="educationalLevel" 
+                class="educational-qualification"
+                name="eduLevel">
+                <option value="" disabled selected>Choose an option</option>
+                <option value="school">School</option>
+                <option value="higherEducation">Higher Education</option>
+                <option value="undergraduate">Undergraduate</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Grade/Level:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <input 
+                type="text" 
+                class="richText" 
+                id="Grade" 
+                name="level" />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Teaching Style:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <select 
+                id="teachingStyle" 
+                class="educational-qualification"
+                name="teachingStyle">
+                <option value="" disabled selected>Choose an option</option>
+                <option value="visual">Visual</option>
+                <option value="auditory">Auditory</option>
+                <option value="kinesthetic">Kinesthetic</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Teaching Format:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <select 
+                id="teachingFormat" 
+                class="educational-qualification"
+                name="teachingFormat">
+                <option value="" disabled selected>Choose an option</option>
+                <option value="oneOnOne">One-on-one</option>
+                <option value="group">Group</option>
+                <option value="both">Both</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Teaching Mode:</label>
+            </div>
+            <div class="flexLabelCreateRadio">
+              <div class="optionGroup">
+                <input 
+                  type="radio" 
+                  id="inPerson" 
+                  name="teachingMode" 
+                  value="inPerson" 
+                  class="radioButton"/>
+                <label for="inPerson">In person</label>
+              </div>
+              <div class="optionGroup">
+                <input 
+                  type="radio" 
+                  id="online" 
+                  name="teachingMode" 
+                  value="online" 
+                  class="radioButton" />
+                <label for="online">Online</label>
+              </div>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Upload URL:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <input 
+                type="text" 
+                class="richText" 
+                id="video" 
+                name="video" />
+            </div>
+          </div>
+          <div class="flex3Page2">
+            <div class="flexBox">
+              <input
+                id='btnAddCourse'
+                type="submit"
+                value="Add Course"
+                class="button register-btn"
+              />
+            </div>
+            <div class="flexBox">
+              <input
+                id='btnCancel'
+                type="button"
+                value="Cancel"
+                class="button signInstructor-btn"
+                onclick="window.location.href = '/instructor-home'"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <%- include('footer.ejs') %>
+</body>
+</html>
