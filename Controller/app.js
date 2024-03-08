@@ -6,6 +6,7 @@ const session = require("express-session");
 
 var loginRouter = require("./routes/login_router");
 var signupRouter = require("./routes/signup_router");
+var createCourseRouter = require("./routes/create_course_router");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -33,5 +34,8 @@ app.post("/instructor-register", signupRouter);
 
 app.get("/student-register", signupRouter);
 app.post("/student-register", signupRouter);
+
+app.get("/create-course", createCourseRouter);
+app.post("/create-course", createCourseRouter);
 
 module.exports = app;
