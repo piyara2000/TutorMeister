@@ -1,7 +1,19 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+  margin: 0; /* Remove default margin */
+}
+
 .box {
   background: #222629;
-  position: relative;
-  bottom: 0;
+  margin-top: auto; /* Push the footer to the bottom */
   width: 100%;
 }
 
@@ -15,20 +27,20 @@
 }
 
 .footerRow {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   text-align: center;
   justify-content: space-between;
+  padding-bottom: 20px;
 
   @media (max-width: 1000px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: center;
   }
 }
 
 .footerLink {
   color: #fff;
-  margin-bottom: 0%;
   margin: 0 20px;
   text-decoration: none;
   cursor: pointer;
@@ -42,5 +54,5 @@
 
 .nav-logo {
   width: 150px;
-  height: auto; /* Maintain the aspect ratio */
+  height: auto;
 }
