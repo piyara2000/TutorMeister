@@ -7,10 +7,12 @@ exports.health = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  res.render("login");
+  let message;
+  res.render("login", { message });
 };
 
 exports.loginPost = (req, res) => {
+  let message;
   const post = req.body;
   const username = post.username;
   const password = post.password;
@@ -34,6 +36,9 @@ exports.loginPost = (req, res) => {
           res.send(errInstructor.stack);
         } else {
           if (rowsInstructor.length) {
+            req.session.instructorId = rowsInstructor[0].userid;
+            req.session.instructorFname = rowsInstructor[0].firstname;
+            req.session.instructorLname = rowsInstructor[0].lastname;
             const pwdFromDb = rowsInstructor[0].password;
             const decryptedValue = utils.getDecrptedValue(pwdFromDb);
 
@@ -43,7 +48,7 @@ exports.loginPost = (req, res) => {
               return;
             } else {
               message = "Incorrect Password";
-              res.render("login");
+              res.render("login", { message: "Incorrect Password" });
               connection.end();
               return;
             }
@@ -58,6 +63,7 @@ exports.loginPost = (req, res) => {
                 res.send(errStudent.stack);
               } else {
                 if (rowsStudent.length) {
+                  req.session.studentId = rowsStudent[0].userid;
                   const pwdFromDb = rowsStudent[0].password;
                   const decryptedValue = utils.getDecrptedValue(pwdFromDb);
 
@@ -66,15 +72,13 @@ exports.loginPost = (req, res) => {
                     connection.end();
                     return;
                   } else {
-                    message = "Incorrect Password";
-                    res.render("login");
+                    res.render("login", { message: "Incorrect Password" });
                     connection.end();
                     return;
                   }
                 } else {
                   // Username not found in either table
-                  message = "Incorrect username";
-                  res.render("login");
+                  res.render("login", { message: "Incorrect username" });
                 }
               }
               connection.end();
@@ -84,7 +88,17 @@ exports.loginPost = (req, res) => {
       }
     );
   } else {
-    message = "Please enter valid credentials";
-    res.render("login");
+    res.render("login", { message: "Please enter valid credentials" });
   }
+};
+
+exports.logout = (req, res) => {
+  // Destroy the session
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error destroying session:", err);
+    }
+    // Redirect to the login page after destroying the session
+    res.redirect("/login");
+  });
 };
