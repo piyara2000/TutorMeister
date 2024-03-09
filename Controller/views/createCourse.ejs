@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" href="img/logo.jpg" type="image/jpg" />
   </head>
-<body>
+  <body>
+    <%- include('navBarInstructor.ejs') %>
     <div class="containterCreateCourse">
       <form action="" class="formCreate" method="post">
         <h3 class="heading">Create A Course</h3>
@@ -19,11 +20,12 @@
               <label class="label-create-course">Course name:</label>
             </div>
             <div class="flexLabalCreate">
-              <input 
-                type="text" 
-                class="richText" 
-                id="courseName" 
-                name="courseName"/>
+              <input
+                type="text"
+                class="richText"
+                id="courseName"
+                name="courseName"
+              />
             </div>
           </div>
           <div class="flexPage2">
@@ -31,11 +33,7 @@
               <label class="label-create-course">Subject:</label>
             </div>
             <div class="flexLabalCreate">
-              <input 
-                type="text" 
-                class="richText" 
-                id="Subject" 
-                name="subject" />
+              <input type="text" class="richText" id="Subject" name="subject" />
             </div>
           </div>
           <div class="flexPage2">
@@ -43,10 +41,11 @@
               <label class="label-create-course">Educational Level:</label>
             </div>
             <div class="flexLabalCreate">
-              <select 
-                id="educationalLevel" 
+              <select
+                id="educationalLevel"
                 class="educational-qualification"
-                name="eduLevel">
+                name="eduLevel"
+              >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="school">School</option>
                 <option value="higherEducation">Higher Education</option>
@@ -59,11 +58,7 @@
               <label class="label-create-course">Grade/Level:</label>
             </div>
             <div class="flexLabalCreate">
-              <input 
-                type="text" 
-                class="richText" 
-                id="Grade" 
-                name="level" />
+              <input type="text" class="richText" id="Grade" name="level" />
             </div>
           </div>
           <div class="flexPage2">
@@ -71,10 +66,11 @@
               <label class="label-create-course">Teaching Style:</label>
             </div>
             <div class="flexLabalCreate">
-              <select 
-                id="teachingStyle" 
+              <select
+                id="teachingStyle"
                 class="educational-qualification"
-                name="teachingStyle">
+                name="teachingStyle"
+              >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="visual">Visual</option>
                 <option value="auditory">Auditory</option>
@@ -87,10 +83,11 @@
               <label class="label-create-course">Teaching Format:</label>
             </div>
             <div class="flexLabalCreate">
-              <select 
-                id="teachingFormat" 
+              <select
+                id="teachingFormat"
                 class="educational-qualification"
-                name="teachingFormat">
+                name="teachingFormat"
+              >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="oneOnOne">One-on-one</option>
                 <option value="group">Group</option>
@@ -104,21 +101,23 @@
             </div>
             <div class="flexLabelCreateRadio">
               <div class="optionGroup">
-                <input 
-                  type="radio" 
-                  id="inPerson" 
-                  name="teachingMode" 
-                  value="inPerson" 
-                  class="radioButton"/>
+                <input
+                  type="radio"
+                  id="inPerson"
+                  name="teachingMode"
+                  value="inPerson"
+                  class="radioButton"
+                />
                 <label for="inPerson">In person</label>
               </div>
               <div class="optionGroup">
-                <input 
-                  type="radio" 
-                  id="online" 
-                  name="teachingMode" 
-                  value="online" 
-                  class="radioButton" />
+                <input
+                  type="radio"
+                  id="online"
+                  name="teachingMode"
+                  value="online"
+                  class="radioButton"
+                />
                 <label for="online">Online</label>
               </div>
             </div>
@@ -128,17 +127,27 @@
               <label class="label-create-course">Upload URL:</label>
             </div>
             <div class="flexLabalCreate">
-              <input 
-                type="text" 
-                class="richText" 
-                id="video" 
-                name="video" />
+              <input type="text" class="richText" id="video" name="video" />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel flexCreate">
+              <label class="label-create-course">Description:</label>
+            </div>
+            <div class="flexLabalCreate">
+              <textarea
+                class="richText"
+                type="text"
+                name="description"
+                id="description"
+                style="resize: none"
+              ></textarea>
             </div>
           </div>
           <div class="flex3Page2">
             <div class="flexBox">
               <input
-                id='btnAddCourse'
+                id="btnAddCourse"
                 type="submit"
                 value="Add Course"
                 class="button register-btn"
@@ -146,7 +155,7 @@
             </div>
             <div class="flexBox">
               <input
-                id='btnCancel'
+                id="btnCancel"
                 type="button"
                 value="Cancel"
                 class="button signInstructor-btn"
@@ -158,5 +167,5 @@
       </form>
     </div>
     <%- include('footer.ejs') %>
-</body>
+  </body>
 </html>
