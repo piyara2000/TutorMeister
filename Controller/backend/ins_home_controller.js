@@ -1,24 +1,75 @@
-// insHome.js
-const express = require("express");
-const path = require("path");
-const app = express();
-const port = 3000;
+const db = require("../common/database");
+const insHomeQuery = require("../querymanager/insHomeQuery");
+const utils = require("../common/utils");
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, "public")));
+exports.insHome = (req, res) => {
+  if (!req.session || !req.session.instructorId) {
+    return res.redirect("/login");
+  } else {
+    var dbRecordList = [];
+    var instructorId = req.session.instructorId;
+    var insFname = req.session.instructorFname;
+    var insLname = req.session.instructorLname;
+    var connection = db.getMySQLConnection();
+    connection.connect();
+    connection.query(
+      insHomeQuery.GET_COURSE_DATA,
+      [instructorId],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+          res.send(err.stack);
+          return;
+        } else {
+          if (result.length > 0) {
+            for (var i = 0; i < result.length; i++) {
+              var dbRecord = {
+                CourseName: result[i].coursename,
+                Level: result[i].level,
+                Instructor: insFname + " " + insLname,
+                CourseId: result[i].courseid,
+              };
+              dbRecordList.push(dbRecord);
+            }
+            connection.end();
+            res.render("insHome", { dbRecordList: dbRecordList });
+          } else {
+            connection.end();
+            res.render("insHome", { dbRecordList: [] });
+          }
+        }
+      }
+    );
+  }
+};
 
-// Serve the React UI for all routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+exports.insHomePost = (req, res) => {
+  if (!req.session || !req.session.instructorId) {
+    return res.redirect("/login");
+  }
+  const courseId = req.body.courseId;
+  req.session.courseid = courseId;
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+  // Retrieve additional course details based on courseId
+  const connection = db.getMySQLConnection();
+  connection.connect();
+  connection.query(
+    insHomeQuery.GET_COURSE_DETAILS,
+    [courseId],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send(err.stack);
+        return;
+      }
 
-const insHomeHandler = (req, res) => {
-    // Your logic for /instructor-home goes here
-    res.send("This is the instructor home page!");
-  };
-  
-  module.exports = insHomeHandler;
+      if (result.length > 0) {
+        res.redirect(`/viewCourse`);
+      } else {
+        res.send("Course details not found.");
+      }
+
+      connection.end();
+    }
+  );
+};
