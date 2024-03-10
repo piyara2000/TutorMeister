@@ -194,7 +194,7 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: center;
-    padding-left: 5%;
+    padding-left: 7%;
 }
 
 .flexLabel2 {
@@ -203,17 +203,16 @@ body {
     flex-wrap: wrap;
     justify-content: flex-end;
     align-content: center;
-    padding-right: 5%;
+    padding-right: 7%;
 }
 
 .flexLabelRadio {
     display: flex;
     flex: 1 1;
     justify-content: flex-start;
-    gap: 23%;
     flex-wrap: wrap;
     flex-direction: row;
-    padding-left: 2%;
+    gap: 14%;
 }
 
 .form{
