@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      VERSION: 'v7'
+      VERSION: 'v8'
 
     steps:
     - name: Checkout repository
