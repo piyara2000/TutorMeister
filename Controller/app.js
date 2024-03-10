@@ -9,6 +9,8 @@ var signupRouter = require("./routes/signup_router");
 var createCourseRouter = require("./routes/create_course_router");
 var insHomeRouter = require("./routes/ins_home_router");
 var insViewCourseRouter = require("./routes/ins_view_course_router");
+var accountEditRouter = require("./routes/account_edit_router");
+
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -38,6 +40,7 @@ app.use((req, res, next) => {
   const isLoginPage2 = req.path === "/";
   const isInstructorSignupPage = req.path === "/instructor-register";
   const isStudentSignupPage = req.path === "/student-register";
+  
 
   const isLoggedIn = req.session && req.session.instructorId;
 
@@ -89,6 +92,9 @@ app.post("/create-course", createCourseRouter);
 
 app.get("/instructor-home", insHomeRouter);
 app.post("/instructor-home", insHomeRouter);
+
+app.get("/instructor-account-edit", accountEditRouter);
+app.post("/instructor-account-edit", accountEditRouter);
 
 app.get("/viewCourse", insViewCourseRouter);
 

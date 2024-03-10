@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor Account Edit Page | TutorMeister</title>
+    <link rel="stylesheet" href="css/accountEditPage.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+  </head>
+
+  <body>
+    <%- include('navBarInstructor.ejs') %>
+    <div class="containerStdAcc">
+      <form action="" class="form3" method="post">
+        <div class="rows">
+          <h3 class="heading-accEditPage">Edit Profile</h3>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Change Username:</label>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <input
+                type="text"
+                class="labelStdAcc"
+                name="username"
+                placeholder="New Username"
+              />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Change Email Address:</label>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <input
+                type="email"
+                class="labelStdAcc"
+                name="emailAddress"
+                placeholder="New Email"
+              />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Change Password:</label>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <input
+                type="password"
+                class="labelStdAcc"
+                name="password"
+                placeholder="New Password"
+              />
+            </div>
+          </div>
+          <% if (message !==undefined) { %>
+          <p style="color: red; text-align: center"><%= message %></p>
+          <% } %>
+          <div class="flex3AccEditPage2">
+            <div class="flexBox"></div>
+            <div class="flexBox">
+              <input
+                type="submit"
+                value="Save Changes"
+                class="button register-btn"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>
