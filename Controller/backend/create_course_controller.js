@@ -24,6 +24,8 @@ exports.createCoursePost = (req, res) => {
     var post = req.body;
 
     var instructorId = req.session.instructorId;
+    var insFname = req.session.instructorFname;
+    var insLname = req.session.instructorLname;
     var courseName = post.courseName;
     courseName = courseName.trim();
     var subject = post.subject;
@@ -63,6 +65,8 @@ exports.createCoursePost = (req, res) => {
           video,
           instructorId,
           desc,
+          insFname,
+          insLname
         ],
         (err, rows) => {
           if (err) {
