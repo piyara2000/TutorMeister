@@ -93,5 +93,5 @@ exports.loginPost = (req, res) => {
 };
 
 exports.logout = (req, res) => {
-    res.redirect("/login");
+  res.redirect("/login");
 };
