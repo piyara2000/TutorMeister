@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Instructor Sign-Up | TutorMeister</title>
     <link rel="stylesheet" href="css/signUp.css" />
-    <link rel="stylesheet" href="css/app.css" />  
-    <link rel="icon" href="img/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
   </head>
   <body>
     <div class="containerStd">
-      <form method="post" class="form">
+      <form method="post" class="form" onsubmit="return false">
         <div class="row">
           <div class="flex">
             <img class="home-logo-img-stSignup" src="img/RectangleLogo.png" />
@@ -46,11 +46,21 @@
           </center>
           <br />
           <center>
-            <input type="text" name="country" class="inputbox details" placeholder="Country" />
+            <input
+              type="text"
+              name="country"
+              class="inputbox details"
+              placeholder="Country"
+            />
           </center>
           <br />
           <center>
-            <input type="email" name="email" class="inputbox details" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              class="inputbox details"
+              placeholder="Email"
+            />
           </center>
           <br />
           <center>
@@ -62,6 +72,9 @@
             />
           </center>
           <br />
+          <% if (message !== undefined) { %>
+          <p style="color: red; text-align: center"><%= message %></p>
+          <% } %>
           <div class="flex3">
             <div class="flexBox">
               <input
@@ -73,9 +86,10 @@
             </div>
             <div class="flexBox">
               <input
-                type="submit"
+                type="button"
                 value="Register"
                 class="button register-btn"
+                onclick="validateForm()"
               />
             </div>
           </div>
@@ -92,6 +106,32 @@
           <br />
         </div>
       </form>
+      <script>
+        function validateForm() {
+          // Check if the required fields are filled
+          var firstname = document.getElementsByName("firstname")[0].value;
+          var lastname = document.getElementsByName("lastname")[0].value;
+          var username = document.getElementsByName("username")[0].value;
+          var country = document.getElementsByName("country")[0].value;
+          var email = document.getElementsByName("email")[0].value;
+          var password = document.getElementsByName("password")[0].value;
+
+          if (
+            firstname === "" ||
+            lastname === "" ||
+            username === "" ||
+            country === "" ||
+            email === "" ||
+            password === ""
+          ) {
+            alert("All fields are required");
+            return false; // Prevent form submission
+          }
+
+          // Continue with form submission if all fields are filled
+          document.forms[0].submit();
+        }
+      </script>
     </div>
     <%- include('footer.ejs') %>
   </body>

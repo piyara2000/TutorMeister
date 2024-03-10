@@ -8,7 +8,7 @@ const session = require("express-session");
 exports.insSignUp = (req, res) => {
   var message = "";
   var userDetails = "";
-  res.render("insSignUp");
+  res.render("insSignUp", { message });
 };
 
 exports.insSignUpPost = (req, res) => {
@@ -74,7 +74,7 @@ exports.insSignUpPost = (req, res) => {
 exports.stuSignUp = (req, res) => {
   var message = "";
   var userDetails = "";
-  res.render("stuSignUp");
+  res.render("stuSignUp", { message });
 };
 
 exports.stuSignUpPost = (req, res) => {

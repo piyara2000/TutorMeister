@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Sign-Up | TutorMeister</title>
     <link rel="stylesheet" href="css/signUp.css" />
-    <link rel="stylesheet" href="css/app.css" />  
+    <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" href="img/logo.jpg" type="image/jpg" />
   </head>
   <body>
@@ -16,6 +16,7 @@
         action="/student-register"
         method="post"
         class="form"
+        onsubmit="return false"
       >
         <div class="row">
           <div class="flex">
@@ -90,6 +91,7 @@
                 id="eduQual"
                 name="eduQual"
                 class="educational-qualification"
+                required
               >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="school">School</option>
@@ -108,6 +110,7 @@
                 id="eduQual"
                 name="learningStyle"
                 class="educational-qualification"
+                required
               >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="visual">Visual</option>
@@ -125,6 +128,7 @@
                 id="eduQual"
                 name="learningPace"
                 class="educational-qualification"
+                required
               >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="slow">Slow</option>
@@ -142,6 +146,7 @@
                 id="eduQual"
                 name="isGroup"
                 class="educational-qualification"
+                required
               >
                 <option value="" disabled selected>Choose an option</option>
                 <option value="oneOnOne">One-on-one</option>
@@ -162,6 +167,7 @@
                   name="learningMode"
                   value="inPerson"
                   class="radioButton"
+                  required
                 />
                 <label for="inPerson">In person</label>
               </div>
@@ -172,6 +178,7 @@
                   name="learningMode"
                   value="online"
                   class="radioButton"
+                  required
                 />
                 <label for="online">Online</label>
               </div>
@@ -190,6 +197,9 @@
               />
             </div>
           </div>
+          <% if (message !== undefined) { %>
+          <p style="color: red; text-align: center"><%= message %></p>
+          <% } %>
           <div class="flex3">
             <div class="flexBox">
               <input
@@ -202,9 +212,10 @@
 
             <div class="flexBox">
               <input
-                type="submit"
+                type="button"
                 value="Register"
                 class="button register-btn"
+                onclick="validateForm()"
               />
             </div>
           </div>
@@ -220,6 +231,33 @@
           </div>
         </div>
       </form>
+      <script>
+        function validateForm() {
+          // Check if the required fields are filled
+          var stufirstname =
+            document.getElementsByName("stufirstname")[0].value;
+          var stulastname = document.getElementsByName("stulastname")[0].value;
+          var stuusername = document.getElementsByName("stuusername")[0].value;
+          var stucountry = document.getElementsByName("stucountry")[0].value;
+          var stuemail = document.getElementsByName("stuemail")[0].value;
+          var stupassword = document.getElementsByName("stupassword")[0].value;
+
+          if (
+            stufirstname === "" ||
+            stulastname === "" ||
+            stuusername === "" ||
+            stucountry === "" ||
+            stuemail === "" ||
+            stupassword === ""
+          ) {
+            alert("All fields are required");
+            return false; // Prevent form submission
+          }
+
+          // Continue with form submission if all fields are filled
+          document.forms[0].submit();
+        }
+      </script>
     </div>
     <%- include('footer.ejs') %>
   </body>

@@ -73,6 +73,9 @@
           </center>
           <br />
           <br />
+          <% if (message !== undefined) { %>
+            <p style="color: red;"><%= message %></p>
+          <% } %>
           <div class="flex buttons login-btn">
             <div>
               <input

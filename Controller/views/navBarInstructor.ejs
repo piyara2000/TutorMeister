@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="icon" href="img/logo.jpg" type="image/jpg" />
+<link rel="stylesheet" href="/css/footer.css" />
+
+<nav class="navBar">
+  <a class="navLogoLink" id="navLogoLink" href="/instructor-home">
+    <img src="img/Logo White.svg" class="nav-logo" alt="navLogo" />
+  </a>
+
+  <div class="navMenu">
+    <a class="navLink <%= active('/instructor-home') %>" href="/instructor-home"
+      >Home</a
+    >
+    <a
+      class="navLink <%= active('/instructor-course-home') %>"
+      href="/instructor-course-home"
+      >Students</a
+    >
+    <a
+      class="navLink <%= active('/instructor-account-edit') %>"
+      href="/instructor-account-edit"
+      >Account</a
+    >
+    <a class="navLink <%= active('/chat') %>" href="/chat">Chat</a>
+  </div>
+
+  <div class="navBtn">
+    <a class="navBtnLink" href="/logout">Log Out</a>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the current URL path
+    var path = window.location.pathname;
+
+    // Find the corresponding link and add the 'active' class
+    var links = document.querySelectorAll(".navLink");
+    for (var i = 0; i < links.length; i++) {
+      var linkPath = links[i].getAttribute("href");
+      if (path === linkPath) {
+        links[i].classList.add("active");
+      }
+    }
+  });
+
+  // Custom active function
+  function active(expectedPath) {
+    return window.location.pathname === expectedPath ? "active" : "";
+  }
+</script>
