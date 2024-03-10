@@ -10,7 +10,7 @@ var createCourseRouter = require("./routes/create_course_router");
 var insHomeRouter = require("./routes/ins_home_router");
 var insViewCourseRouter = require("./routes/ins_view_course_router");
 var accountEditRouter = require("./routes/account_edit_router");
-
+var stuHomeRouter = require("./routes/stu_home_router");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -97,5 +97,8 @@ app.get("/instructor-account-edit", accountEditRouter);
 app.post("/instructor-account-edit", accountEditRouter);
 
 app.get("/viewCourse", insViewCourseRouter);
+
+app.get("/student-home", stuHomeRouter);
+app.post("/student-home", stuHomeRouter);
 
 module.exports = app;
