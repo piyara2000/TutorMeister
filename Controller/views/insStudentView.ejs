@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student View</title>
+    <link rel="stylesheet" href="css/insStudentView.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+
+    <script>
+      function filterItems() {
+        var searchInput = document.getElementById("search").value.toLowerCase();
+        var items = document.querySelectorAll(".itemIns");
+
+        items.forEach(function (item) {
+          var title = item
+            .querySelector(".itemIns-title")
+            .innerText.toLowerCase();
+          var student = item
+            .querySelector(".itemIns-details span")
+            .innerText.toLowerCase();
+
+          if (title.includes(searchInput) || student.includes(searchInput)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <%- include('navBarInstructor.ejs') %>
+
+    <div class="search-margin">
+      <input
+        type="text"
+        class="instructor-search"
+        id="search"
+        placeholder="Search"
+        oninput="filterItems()"
+      />
+    </div>
+    
+    <section class="container content-section">
+      <% if (message !== undefined) { %>
+        <p class="message"><%= message %></p>
+        <% } %>
+      <div class="itemsIns">
+        <% if (dbRecordList && dbRecordList.length > 0) { %> <% for (let i = 0;
+        i < dbRecordList.length; i++) { %>
+        <div class="itemIns">
+          <img class="itemIns-image" src="img/user.png" alt="student image" />
+          <span class="itemIns-title"><%= dbRecordList[i].Student %></span>
+          <div class="itemIns-details">
+            <span class="grade-span"><%= dbRecordList[i].EduLevel %></span>
+            <span><b>Course Name:</b></span>
+            <span class="subject-span"><%= dbRecordList[i].CourseName %></span>
+            <form method="POST" action="">
+              <!-- Pass course details to the server when the form is submitted -->
+              <input
+                type="hidden"
+                name="studentId"
+                value="<%= dbRecordList[i].StudentId %>"
+              />
+              <button class="btn item-button" type="submit">View</button>
+            </form>
+          </div>
+        </div>
+        <% if ((i + 1) % 3 === 0 && i !== dbRecordList.length - 1) { %>
+        <!-- Add a clearing div after every 3 items -->
+        <div style="clear: both"></div>
+        <% } %> <% } %> <% } else { %>
+        <br />
+        <% } %>
+      </div>
+    </section>
+    <%- include('footer') %>
+  </body>
+</html>
