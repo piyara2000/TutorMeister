@@ -6,75 +6,88 @@
   <link rel="stylesheet" href="css/studentMyCourse.css" />
   <link rel="icon" href="img/englishIns.jpg" type="image/jpg">
   <link rel="stylesheet" href="/css/footer.css" />
-  <title>StudentMyCourses</title>
-
-
+  <title>Student View Enrolled Courses | TutorMeister</title>
 
 </head>
-<body style="background-color: #9EE493;">
-
+<body style="background-color: #9ee493">
+  <%- include('navBarStudent.ejs') %>
   <div class="containerCourse">
-    <div class="profile">
-      <img class="profile-image"   src="img/englishIns.jpg" alt="">
-      <div class="notify-btns">
-        
-        <div>
-          <input type="button" value="Schedule a meeting" class="button notify-btn1" onclick="window.location.href = '/student-course-home'" />
-        </div>
-        <div class="profile-itemdate">
-          <span class="labelDate">Upcoming Sessions</span>
-          <input type="text" id="datepicker" placeholder="--" />
-        </div>
+    <div class="profile1">
+      <% if (dbRecordList && dbRecordList.length > 0) { %> <% for (let i = 0;
+      i < dbRecordList.length; i++) { %>
+      <img class="profile-image" src="img/user.png" alt="" />
+      <div class="labelpro">
+        <span class="labelpro1"> <%= dbRecordList[0].Instructor %></span>
       </div>
     </div>
 
     <div class="container-formCourse">
       <form action="" class="formCourse">
         <div class="heading1">
-          <h4>Meet The Tutor</h4>
+          <h4><%= dbRecordList[0].CourseName %></h4>
+          <% if (dbRecordList[0].Video) { %>
           <div class="vdpath">
-            <video src="/path/to_video.mp4" controls></video>
+            <iframe
+              width="95%"
+              height="415"
+              src="<%= dbRecordList[0].Video %>"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
+          <% } %>
         </div>
 
         <div class="heading2">
-          <h4>About the Tutor</h4>
+          <h4>About the Course</h4>
         </div>
 
         <div class="row">
           <div class="profile-container">
             <div class="profile-item">
-              <span class="label">Name:</span> Kibo Underwood
-            </div>
-
-            <div class="profile-item">
               <span class="label">Description:</span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              <%= dbRecordList[0].Description %>
             </div>
 
             <div class="profile-item">
-              <span class="label">Subjects:</span> English, Mathematics
+              <span class="label">Subject:</span> <%= dbRecordList[0].Subject
+              %>
             </div>
 
             <div class="profile-item">
-              <span class="label">Certifications:</span> Certified Academic Tutor (CAT), National Tutoring Association (NTA) Certification
+              <span class="label">Teaching Format:</span> <%=
+              dbRecordList[0].TeachingFormat %>
+            </div>
+
+            <div class="profile-item">
+              <span class="label">Education Level:</span> <%=
+              dbRecordList[0].EduLevel %>
+            </div>
+
+            <div class="profile-item">
+              <span class="label">Mode:</span> <%= dbRecordList[0].Mode %>
+            </div>
+
+            <div class="profile-item">
+              <span class="label">Teaching Style:</span> <%=
+              dbRecordList[0].TeachingStyle %>
             </div>
           </div>
-
+          <% } %> <% } %>
           <div class="heading2">
             <h4>Ratings and Reviews</h4>
           </div>
           <div class="star-rating">
             <div class="ratingA">
-              <input type="radio" name="rating1" id="rating1"></input>
+              <input type="radio" name="rating1" id="rating1" />
               <label for="rating1"></label>
-              <input type="radio" name="rating1" id="rating2"></input>
+              <input type="radio" name="rating1" id="rating2" />
               <label for="rating2"></label>
-              <input type="radio" name="rating1" id="rating3"></input>
+              <input type="radio" name="rating1" id="rating3" />
               <label for="rating3"></label>
-              <input type="radio" name="rating1" id="rating4"></input>
+              <input type="radio" name="rating1" id="rating4" />
               <label for="rating4"></label>
-              <input type="radio" name="rating1" id="rating5"></input>
+              <input type="radio" name="rating1" id="rating5" />
               <label for="rating5"></label>
               <h6 class="value">4.6</h6>
               <br />
@@ -84,20 +97,27 @@
           </div>
           <div class="review">
             <p>
-              Great! <br /> He helped me feel more prepared for an exam I had the day before on linear programming with very short notice. He makes sure you understand it before going forward, and is patient with you. I recommend him!!
+              Great! <br />
+              He helped me feel more prepared for an exam I had the day before
+              on linear programming with very short notice. He makes sure you
+              understand it before going forward, and is patient with you. I
+              recommend him!!
             </p>
           </div>
-
           <div class="flexRate">
             <div class="flexRateBox">
-              <input type="button" value="Rate and Review" class="button rate-btn" onclick="window.location.href = '/student-course-home'" />
+              <input
+                type="button"
+                value="Join Course"
+                class="button rate-btn"
+                onclick="window.location.href='/student-home'"
+              />
             </div>
           </div>
         </div>
       </form>
     </div>
   </div>
-
-
 </body>
+<%- include('footer') %>
 </html>

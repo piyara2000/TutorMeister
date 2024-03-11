@@ -1,64 +1,95 @@
-const request = require("supertest");
-const express = require("express");
-const session = require("express-session");
-const bodyParser = require("body-parser");
-
 const accountEditController = require("../backend/account_edit_page_controller");
 const accountEditPageQuery = require("../querymanager/accountEditPageQuery");
 const utils = require("../common/utils");
+const { validationResult } = require("express-validator");
 
-jest.mock("../common/database", () => ({
-  getMySQLConnection: jest.fn(() => ({
-    connect: jest.fn(),
-    query: jest.fn(),
-    end: jest.fn(),
-  })),
-}));
+jest.mock("../common/database"); // Mock the database module
+jest.mock("express-validator"); // Mock the express-validator module
 
-describe("Instructor Account Edit Controller", () => {
-  let server;
+describe("Account Edit Controller", () => {
+  afterEach(() => {
+    jest.restoreAllMocks(); // Restore mocks after each test
+  });
 
-  beforeAll((done) => {
-    const app = express();
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(session({ secret: "test-secret", resave: true, saveUninitialized: true }));
+  test('insAccountEdit should render "instructorAccountEdit" template', () => {
+    const renderMock = jest.fn();
+    const req = { session: { instructorId: 3 } };
+    const res = { render: renderMock };
 
-    // Mock session data for instructor
-    app.use((req, res, next) => {
-      req.session.instructorId = 3; // replace with your instructorId for testing
-      next();
+    accountEditController.insAccountEdit(req, res);
+
+    expect(renderMock).toHaveBeenCalledWith("instructorAccountEdit", { message: "" });
+  });
+
+  test('insAccountEdit should redirect to "/login" when no instructorId in session', () => {
+    const redirectMock = jest.fn();
+    const req = { session: {} };
+    const res = { redirect: redirectMock };
+
+    accountEditController.insAccountEdit(req, res);
+
+    expect(redirectMock).toHaveBeenCalledWith("/login");
+  });
+
+  test('insAccountEditPost should redirect to "/login" when no instructorId in session', () => {
+    const redirectMock = jest.fn();
+    const req = { session: {} };
+    const res = { redirect: redirectMock };
+
+    accountEditController.insAccountEditPost(req, res);
+
+    expect(redirectMock).toHaveBeenCalledWith("/login");
+  });
+
+  test('stuAccountEdit should render "studentAccountEdit" template', () => {
+    const renderMock = jest.fn();
+    const req = { session: { studentId: 4 } };
+    const res = { render: renderMock };
+  
+    accountEditController.stuAccountEdit(req, res);
+  
+    expect(renderMock).toHaveBeenCalledWith("studentAccountEdit", { message: "" });
+  });
+  
+  test('stuAccountEdit should redirect to "/login" when no studentId in session', () => {
+    const redirectMock = jest.fn();
+    const req = { session: {} };
+    const res = { redirect: redirectMock };
+  
+    accountEditController.stuAccountEdit(req, res);
+  
+    expect(redirectMock).toHaveBeenCalledWith("/login");
+  });
+  
+  test('stuAccountEditPost should redirect to "/login" when no studentId in session', () => {
+    const redirectMock = jest.fn();
+    const req = { session: {} };
+    const res = { redirect: redirectMock };
+  
+    accountEditController.stuAccountEditPost(req, res);
+  
+    expect(redirectMock).toHaveBeenCalledWith("/login");
+  });
+  
+  test('stuAccountEditPost should render "studentAccountEdit" template with validation message', () => {
+    const renderMock = jest.fn();
+    const invalidData = {
+      username: "", 
+      emailAddress: "invalid-email",
+      password: "short", 
+    };
+    const req = { session: { studentId: 4 }, body: invalidData };
+    const res = { render: renderMock };
+    validationResult.mockReturnValueOnce({ isEmpty: () => false, array: () => ["validation error"] });
+  
+    accountEditController.stuAccountEditPost(req, res);
+  
+    expect(validationResult).toHaveBeenCalledWith(req);
+    expect(renderMock).toHaveBeenCalledWith("studentAccountEdit", {
+      message: "",
+      userDetails: "",
+      validationMessage: ["validation error"],
     });
-
-    app.set("view engine", "ejs");
-
-    // Mock route for instructor account edit
-    app.get("/instructor-account-edit", accountEditController.insAccountEdit);
-    app.post("/instructor-account-edit", accountEditController.insAccountEditPost);
-
-    server = app.listen(5000, () => {
-      done();
-    });
   });
 
-  afterAll((done) => {
-    server.close(done);
-  });
-
-  it("renders instructor account edit page", async () => {
-    const response = await request(server).get("/instructor-account-edit");
-
-    // Check if it's a redirect (status code 302)
-    if (response.status === 302) {
-      // Follow the redirect
-      const redirectedResponse = await request(server).get(response.headers.location);
-      expect(redirectedResponse.status).toBe(200);
-      expect(redirectedResponse.text).toContain("login");
-    } else {
-      // No redirect, check status and content directly
-      expect(response.status).toBe(200);
-      expect(response.text).toContain("instructorAccountEdit");
-    }
-  });
-
-  // Add more test cases for instructor account edit post method
 });
