@@ -2,30 +2,30 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Home | TutorMeister</title>
-    <link rel="stylesheet" href="css/insHome.css" />
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/studentCourse.css" />
     <link rel="icon" href="img/logo.jpg" type="image/jpg" />
-
+    <link rel="stylesheet" href="/css/footer.css" />
+    <title>My-Courses</title>
     <script>
-        function filterItems() {
-          var searchInput = document.getElementById('search').value.toLowerCase();
-          var items = document.querySelectorAll('.item-ins');
-      
-          items.forEach(function(item) {
-            var title = item.querySelector('.item-title').innerText.toLowerCase();
-            var instructor = item.querySelector('.item-details p').innerText.toLowerCase();
-      
-            if (title.includes(searchInput) || instructor.includes(searchInput)) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        }
-      </script>
+      function filterItems() {
+        var searchInput = document.getElementById("search").value.toLowerCase();
+        var items = document.querySelectorAll(".item-ins");
+
+        items.forEach(function (item) {
+          var title = item.querySelector(".item-title").innerText.toLowerCase();
+          var instructor = item
+            .querySelector(".item-details p")
+            .innerText.toLowerCase();
+
+          if (title.includes(searchInput) || instructor.includes(searchInput)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
   </head>
   <body>
     <%- include('navBarStudent.ejs') %>
@@ -39,26 +39,15 @@
         oninput="filterItems()"
       />
     </div>
-
-    <div class="content-margin" id="content-margin">
-      <div class="home-body" id="home-body">
-        <center>
-          <h3 class="heading" id="heading">Welcome to TutorMeister!</h3>
-        </center>
-        <center>
-          <h3 class="subHeading" id="heading">
-            Enroll in a course from the list below that matches your
-            preferences.
-          </h3>
-        </center>
-      </div>
-    </div>
+    <% if (message !== undefined) { %>
+    <p style="color: red; text-align: center"><%= message %></p>
+    <% } %>
     <section class="container content-section">
       <div class="items">
         <% if (dbRecordList && dbRecordList.length > 0) { %> <% for (let i = 0;
         i < dbRecordList.length; i++) { %>
-        <div class="item-ins">
-          <img class="item-image-ins" src="img/science.jpg" alt="" />
+        <div class="item">
+          <img class="item-image" src="img/science.jpg" alt="" />
           <span class="item-title"><%= dbRecordList[i].CourseName %></span>
           <div class="item-details">
             <p>
@@ -84,6 +73,7 @@
         <% } %>
       </div>
     </section>
-    <%- include('footer') %>
+
+    <%- include('footer.ejs') %>
   </body>
 </html>
