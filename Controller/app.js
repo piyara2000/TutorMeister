@@ -11,6 +11,9 @@ var insHomeRouter = require("./routes/ins_home_router");
 var insViewCourseRouter = require("./routes/ins_view_course_router");
 var accountEditRouter = require("./routes/account_edit_router");
 var stuHomeRouter = require("./routes/stu_home_router");
+var insStudentView = require("./routes/ins_student_view_router");
+var studentMyCourseRouter = require("./routes/studentMyCourse_router");
+var existingStudentCourseRouter = require("./routes/existing_student_course_router");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -103,5 +106,15 @@ app.get("/viewCourse", insViewCourseRouter);
 
 app.get("/student-home", stuHomeRouter);
 app.post("/student-home", stuHomeRouter);
+
+app.get("/studentMyCourse", studentMyCourseRouter);
+app.post("/studentMyCourse",studentMyCourseRouter);
+
+app.get("/existingStudentCourse", existingStudentCourseRouter);
+app.post("/existingStudentCourse",existingStudentCourseRouter);
+
+
+app.get("/instructor-student-view", insStudentView);
+app.post("/instructor-student-view", insStudentView);
 
 module.exports = app;
