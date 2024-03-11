@@ -1,0 +1,190 @@
+.containerCourse {
+  
+    display: flex;
+    justify-content: right;
+    text-align: justify;
+    align-items: center;
+    padding: 5%; 
+  }
+  
+  .containerCourse-formCourse {
+    width: 40%;
+  }
+  
+  .formCourse {
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid black;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 6%;
+    border-radius: 8px;
+    color: #000000;
+  }
+
+  #datepicker{
+    margin-left: 10%;
+
+  }
+  .flexRate {
+    text-align: center;
+  }
+  
+  h4 {
+    font-size: 2rem;
+    padding-left: 0%;
+    padding-right: 5%;
+    text-align: left;
+    font-weight: bolder;
+  }
+  .label {
+    font-weight: bold;
+  }
+  .labelDate{
+    font-size: 1.5rem;
+    margin-left: 10%;
+    margin-right: 20%;
+
+  }
+
+  .labelpro1{
+    margin-top: 90%;
+    font-size: 1.5rem;
+    
+  }
+  .labelpro{
+   margin-top: 12%;
+    align-items: center;
+    margin-left: 25%;
+    font-weight: bolder;
+  }
+  .notify-btns {
+    padding: 10px 50px;
+    
+  }
+  
+  .notify-btn1 {
+    margin-left: 20%;
+    margin-top: 5%;
+    background-color: #9EE493;
+    color: #000000;
+    padding: 10px 20px;
+  
+    &:hover{
+      transistion: all 0.2s ease-in-out;
+      background:  #56974c;
+      color: #fff
+    }
+   
+  }
+  
+  .profile {
+    width:60%;
+    height: 380px;
+    align-self: start;
+    border-radius: 4%;
+    margin-right: 200px;
+    border: 2px solid black;
+    background-color: white;
+  }
+  
+  .profile1 {
+    width: 50%;
+    height: 25%;
+    align-self: start;
+    border-radius: 4%;
+    margin-right: 10%;
+    border: 2px solid black;
+    background-color: white;
+  }
+  
+  .profile-container {
+    margin: 5%;
+  }
+  
+  .profile-image {
+    width: 60%;
+    height: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+  }
+  
+  .profile-item {
+    margin-bottom: 2%;
+    flex-direction: row;
+  }
+  
+  .profile-itemdate{
+    margin-top: 60px;
+  }
+  
+  .rate-btn {
+    background-color: #9EE493;
+    color: #000000;
+    padding: 10px 50px;
+    cursor: pointer;
+    justify-content: space-between;
+  
+    &:hover{
+      transistion: all 0.2s ease-in-out;
+      background:  #56974c;
+      color: #fff
+  }
+  }
+  
+  .review {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: left;
+    text-align: justify;
+  }
+  
+  video {
+    display: block;
+    width: 95%;
+    padding-left: 0%;
+    padding-right: 5%;
+  }
+  
+  /* footer */
+  .home-footer {
+    height: 60px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding-top: 1px;
+    height: 90px;
+    background-color: #cad2d7;
+    position:absolute;
+  }
+  
+  .home-footer a {
+    font-size: 16px;
+    color: #000000;
+  }
+  .home-footer p {
+    font-size: 16px;
+  }
+  
+  .home-footer ul {
+    display: flex;
+  }
+  
+  .home-footer li {
+    list-style-type: none;
+    padding-left: 250px;
+    font-size: 15px;
+  }
+  @media screen and (max-width: 768px) {
+    .containerCourse {
+      /* flex-direction: column;  */
+      /* Change to a column layout on smaller screens */
+      padding: 50px; /* Adjust padding for smaller screens */
+    }
+  
+    .profile, .profile1 {
+      width: 100%; /* Make profiles full width on smaller screens */
+      margin-right: 0; /* Remove margin on smaller screens */
+    }
+  }
