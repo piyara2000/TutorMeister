@@ -96,6 +96,9 @@ app.post("/instructor-home", insHomeRouter);
 app.get("/instructor-account-edit", accountEditRouter);
 app.post("/instructor-account-edit", accountEditRouter);
 
+app.get("/student-account-edit", accountEditRouter);
+app.post("/student-account-edit", accountEditRouter);
+
 app.get("/viewCourse", insViewCourseRouter);
 
 app.get("/student-home", stuHomeRouter);

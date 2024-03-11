@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Account Edit Page | TutorMeister</title>
+    <link rel="stylesheet" href="css/accountEditPage.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+  </head>
+
+  <body>
+    <%- include('navBarInstructor.ejs') %>
+    <div class="containerStdAcc">
+      <form action="" class="form3" method="post">
+        <div class="rows">
+          <h3 class="heading-accEditPage">Edit Profile</h3>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Change Username:</label>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <input
+                type="text"
+                class="labelStdAcc"
+                name="username"
+                placeholder="New Username"
+              />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Change Email Address:</label>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <input
+                type="text"
+                class="labelStdAcc"
+                name="emailAddress"
+                placeholder="New Email"
+              />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Change Password:</label>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <input
+                type="password"
+                class="labelStdAcc"
+                name="password"
+                placeholder="New Password"
+              />
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Educational Qualification:</label>
+            </div>
+            <div class="flexLabel2">
+              <select
+                id="eduQual"
+                class="labelStdAcc"
+                name="educationalQualification"
+              >
+                <option value="placeholder" disabled selected>Choose an option</option>
+                <option value="school">School</option>
+                <option value="higherEducation">Higher Education</option>
+                <option value="undergraduate">Undergraduate</option>
+                <option value="graduated">Graduated</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Preferred Learning Style:</label>
+            </div>
+            <div class="flexLabel2">
+              <select id="eduQual" class="labelStdAcc" name="preLearningStyle" >
+                <option value="placeholder" disabled selected>Choose an option</option>
+                <option value="visual">Visual</option>
+                <option value="auditory">Auditory</option>
+                <option value="kinesthetic">Kinesthetic</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Learning Pace:</label>
+            </div>
+            <div class="flexLabel2">
+              <select id="eduQual" class="labelStdAcc" name="learningPace">
+                <option value="placeholder" disabled selected>Choose an option</option>
+                <option value="slow">Slow</option>
+                <option value="average">Average</option>
+                <option value="fast">Fast</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Learning Type:</label>
+            </div>
+            <div class="flexLabel2">
+              <select id="eduQual" class="labelStdAcc" name="learningType">
+                <option value="placeholder" disabled selected>Choose an option</option>
+                <option value="oneOnOne">One-on-one</option>
+                <option value="group">Group</option>
+                <option value="both">Both</option>
+              </select>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Learning Mode:</label>
+            </div>
+            <div class="flexLabelRadioAccEdit">
+              <div class="optionGroup">
+                <input
+                  type="radio"
+                  id="inPerson"
+                  name="learningMode"
+                  value="inPerson"
+                  class="radioButton"
+                />
+                <label for="inPerson">In person</label>
+              </div>
+              <div class="optionGroup">
+                <input
+                  type="radio"
+                  id="online"
+                  name="learningMode"
+                  value="online"
+                  class="radioButton"
+                />
+                <label for="online">Online</label>
+              </div>
+            </div>
+          </div>
+          <div class="flexPage2">
+            <div class="flexLabel">
+              <label class="label-eduQual">Learning Preferences:</label>
+            </div>
+            <div class="flexLabel2">
+              <input
+                type="text"
+                class="richTextStdAccEdit"
+                name="learningPreferences"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <% if (message !==undefined) { %>
+          <p style="color: red; text-align: center"><%= message %></p>
+          <% } %>
+          <div class="flex3AccEditPage2">
+            <div class="flexBox"></div>
+            <div class="flexBox">
+              <input
+                type="submit"
+                value="Save Changes"
+                class="button register-btn"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>
