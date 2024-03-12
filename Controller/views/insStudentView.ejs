@@ -63,6 +63,16 @@
                 name="studentId"
                 value="<%= dbRecordList[i].StudentId %>"
               />
+              <input
+                type="hidden"
+                name="courseId"
+                value="<%= dbRecordList[i].CourseId %>"
+              />
+              <input
+                type="hidden"
+                name="requestId"
+                value="<%= dbRecordList[i].RequestId %>"
+              />
               <button class="btn item-button" type="submit">View</button>
             </form>
           </div>

@@ -52,6 +52,7 @@ exports.insStudentView = async (req, res) => {
         // Loop through students
         for (let j = 0; j < students.length; j++) {
           const studentId = students[j].student_id;
+          const requestId = students[j].request_id;
           // Query student data
           const studentData = await new Promise((resolve, reject) => {
             connection.query(
@@ -71,6 +72,8 @@ exports.insStudentView = async (req, res) => {
               EduLevel: studentData[k].eduLevel,
               CourseName: courseName,
               StudentId: studentId,
+              CourseId: courseId,
+              RequestId: requestId,
             };
             dbRecordList.push(dbRecord);
           }
@@ -93,6 +96,12 @@ exports.insStudentViewPost = (req, res) => {
   const studentId = req.body.studentId;
   req.session.userid = studentId;
 
+  const courseId = req.body.courseId;
+  req.session.course_id = courseId;
+
+  const requestId = req.body.requestId;
+  req.session.request_id = requestId;
+  
   // Retrieve additional student details based on studentid
   const connection = db.getMySQLConnection();
   connection.connect();

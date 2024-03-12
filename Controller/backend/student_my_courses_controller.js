@@ -18,7 +18,6 @@ exports.stuCourseHome = (req, res) => {
       stuHomeQuery.GET_ENROLLED_COURSES,
       [studentid],
       (err, result) => {
-        console.log(studentid);
         if (err) {
           console.log(err);
           res.send(err.stack);
@@ -27,7 +26,6 @@ exports.stuCourseHome = (req, res) => {
         } else {
           if (result.length > 0) {
             var courseid = result[0].courseid;
-            console.log(courseid);
             connection.query(
               stuHomeQuery.GET_STUDENT_COURSES,
               [courseid],
@@ -51,14 +49,14 @@ exports.stuCourseHome = (req, res) => {
                       dbRecordList.push(dbRecord);
                     }
                     connection.end();
-                    res.render("stuCourseHome", { dbRecordList: dbRecordList });
+                    res.render("stuCourseHome", { dbRecordList: dbRecordList, message:"" });
                   }
                 }
               }
             );
           } else {
             connection.end();
-            res.render("stuCourseHome", { dbRecordList: [] });
+            res.render("stuCourseHome", { dbRecordList: [], message:""});
           }
         }
       }
