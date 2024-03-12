@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accept/Reject Student</title>
+    <link rel="stylesheet" href="css/insStudentView.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+  </head>
+  <body>
+    <%- include('navBarInstructor.ejs') %>
+    <section class="containerA content-section">
+      <div class="wrapper">
+        <div class="profile">
+          <img class="profile-image" src="img/user.png" alt="" />
+          <div class="profile-details">
+            <br />
+            <form action="/acceptStudent" method="POST">
+              <button class="button accept-btn" type="submit">
+                Accept Student
+              </button>
+            </form>
+            <form action="/rejectStudent" method="POST">
+              <button class="button reject-btn" type="submit">
+                Reject Student
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="wrapper2">
+          <% if (dbRecordList && dbRecordList.length > 0) { %> <% for (let i =
+          0; i < dbRecordList.length; i++) { %>
+          <div class="form-group">
+            <span><b>Name</b></span>
+            <p class="form-control"><%= dbRecordList[i].Student %></p>
+          </div>
+          <div class="form-group">
+            <span><b>Education Level</b></span>
+            <p class="form-control"><%= dbRecordList[i].EduLevel %></p>
+          </div>
+          <div class="form-group">
+            <span><b>Preferences</b></span>
+            <p class="form-control">
+              Learning Style: <%= dbRecordList[i].LearningStyle %>
+            </p>
+            <span>Learning Pace: <%= dbRecordList[i].LearningPace %></span>
+          </div>
+        </div>
+        <% if ((i + 1) % 3 === 0 && i !== dbRecordList.length - 1) { %>
+        <!-- Add a clearing div after every 3 items -->
+        <div style="clear: both"></div>
+        <% } %> <% } %> <% } else { %>
+        <br />
+        <% } %>
+      </div>
+    </section>
+    <%- include('footer.ejs') %>
+  </body>
+</html>
