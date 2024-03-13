@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/studentMyCourse.css" />
+    <link rel="stylesheet" href="css/viewCourse.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" href="img/logo.jpg" type="image/jpg" />
     <link rel="stylesheet" href="/css/footer.css" />
@@ -23,7 +23,7 @@
       </div>
 
       <div class="container-formCourse">
-        <form action="" class="formCourse">
+        <form action="" method="post" class="formCourse">
           <div class="heading1">
             <h4><%= dbRecordList[0].CourseName %></h4>
             <% if (dbRecordList[0].Video) { %>
@@ -108,7 +108,7 @@
             <div class="flexRate">
               <div class="flexRateBox">
                 <input
-                  type="button"
+                  type="submit"
                   value="Join Course"
                   class="button rate-btn"
                   onclick="window.location.href='/student-home'"
