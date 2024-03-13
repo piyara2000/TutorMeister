@@ -22,7 +22,6 @@ exports.studentMyCourse = (req, res) => {
         } else {
           if (result.length > 0) {
             for (var i = 0; i < result.length; i++) {
-              console.log(result);
               var dbRecord = {
                 CourseName: result[i].coursename,
                 Level: result[i].level,

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/studentMyCourse.css" />
   <link rel="stylesheet" href="css/app.css" />
-  <link rel="icon" href="img/englishIns.jpg" type="image/jpg">
+  <link rel="icon" href="img/logo.jpg" type="image/jpg">
   <link rel="stylesheet" href="/css/footer.css" />
   <title>Student View Enrolled Courses | TutorMeister</title>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="container-formCourse">
-      <form action="" class="formCourse">
+      <form action="" method="post" class="formCourse">
         <div class="heading1">
           <h4><%= dbRecordList[0].CourseName %></h4>
           <% if (dbRecordList[0].Video) { %>
@@ -108,8 +108,8 @@
           <div class="flexRate">
             <div class="flexRateBox">
               <input
-                type="button"
-                value="Join Course"
+                type="submit"
+                value="Rate and Review"
                 class="button rate-btn"
                 onclick="window.location.href='/student-home'"
               />

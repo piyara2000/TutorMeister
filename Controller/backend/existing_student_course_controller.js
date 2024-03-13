@@ -1,5 +1,6 @@
 const db = require("../common/database");
 const existingStudentCourseQuery = require("../querymanager/existingStudentCourseQuery");
+const insHomeQuery = require("../querymanager/insHomeQuery");
 const { validationResult } = require("express-validator");
 
 exports.existingStudentCourse = (req, res) => {
@@ -21,7 +22,6 @@ exports.existingStudentCourse = (req, res) => {
         } else {
           if (result.length > 0) {
             for (var i = 0; i < result.length; i++) {
-              console.log(result);
               var dbRecord = {
                 CourseName: result[i].coursename,
                 Level: result[i].level,
@@ -52,3 +52,11 @@ exports.existingStudentCourse = (req, res) => {
     );
   }
 };
+
+exports.existingStudentCoursePost = (req, res) => {
+  if (!req.session.studentId) {
+    return res.redirect("/login");
+  } else {
+    res.render("stuCourseHome");
+  }
+}

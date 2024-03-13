@@ -25,9 +25,9 @@ exports.stuCourseHome = (req, res) => {
           return;
         } else {
           if (result.length > 0) {
-            var courseid = result[0].courseid;
+            var courseid = result[0].course_id;
             connection.query(
-              stuHomeQuery.GET_STUDENT_COURSES,
+              stuHomeQuery.GET_STUDENT_COURSES_BY_COURSEID,
               [courseid],
               (err, result) => {
                 if (err) {
@@ -35,7 +35,10 @@ exports.stuCourseHome = (req, res) => {
                   res.send(err.stack);
                   return;
                 } else if (courseid == undefined) {
-                  res.render("stuCourseHome", { dbRecordList: [], message:"You have no enrolled courses yet!" });
+                  res.render("stuCourseHome", {
+                    dbRecordList: [],
+                    message: "You have no enrolled courses yet!",
+                  });
                 } else {
                   if (result.length > 0) {
                     for (var i = 0; i < result.length; i++) {
@@ -49,16 +52,51 @@ exports.stuCourseHome = (req, res) => {
                       dbRecordList.push(dbRecord);
                     }
                     connection.end();
-                    res.render("stuCourseHome", { dbRecordList: dbRecordList, message:"" });
+                    res.render("stuCourseHome", {
+                      dbRecordList: dbRecordList,
+                      message: "",
+                    });
                   }
                 }
               }
             );
           } else {
             connection.end();
-            res.render("stuCourseHome", { dbRecordList: [], message:""});
+            res.render("stuCourseHome", { dbRecordList: [], message: "" });
           }
         }
+      }
+    );
+  }
+};
+
+exports.stuCourseHomePost = (req, res) => {
+  if (!req.session.studentId) {
+    return res.redirect("/login");
+  } else {
+    const courseId = req.body.courseId;
+    req.session.courseid = courseId;
+
+    // Retrieve additional course details based on courseId
+    const connection = db.getMySQLConnection();
+    connection.connect();
+    connection.query(
+      insHomeQuery.GET_COURSE_DETAILS,
+      [courseId],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+          res.send(err.stack);
+          return;
+        }
+
+        if (result.length > 0) {
+          res.redirect(`/existingStudentCourse`);
+        } else {
+          res.send("Course details not found.");
+        }
+
+        connection.end();
       }
     );
   }
