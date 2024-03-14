@@ -13,6 +13,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Navigate to Controller directory
+      run: cd /home/ec2-user/TutorMeister/Controller
+
     - name: Install dependencies
       run: npm install
 
@@ -22,6 +25,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+
+    - name: Navigate to Controller directory
+      run: cd /home/ec2-user/TutorMeister/Controller
 
     - name: Install dependencies
       run: npm install
@@ -36,6 +42,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Navigate to Controller directory
+      run: cd /home/ec2-user/TutorMeister/Controller
+
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
@@ -44,7 +53,6 @@ jobs:
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         port: ${{ secrets.EC2_SSH_PORT }}
         script: |
-          cd /home/ec2-user/TutorMeister/Controller
           git pull origin main
           npm install
           npm test
