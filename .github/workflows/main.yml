@@ -38,8 +38,6 @@ jobs:
         port: ${{ secrets.EC2_SSH_PORT }}
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          npm install
-          git pull origin main
           npm test
 
   deploy:
