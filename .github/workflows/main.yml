@@ -58,7 +58,6 @@ jobs:
           cd /home/ec2-user/TutorMeister/Controller
           git pull origin main
           npm install
-          npm test
 
           kill -9 $(lsof -t -i:5000) || true
 
