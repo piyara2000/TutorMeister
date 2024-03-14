@@ -64,6 +64,8 @@ exports.loginPost = (req, res) => {
               } else {
                 if (rowsStudent.length) {
                   req.session.studentId = rowsStudent[0].userid;
+                  req.session.stuFname = rowsStudent[0].firstname;
+                  req.session.stuLname = rowsStudent[0].lastname;
                   const pwdFromDb = rowsStudent[0].password;
                   const decryptedValue = utils.getDecrptedValue(pwdFromDb);
 
