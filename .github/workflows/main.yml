@@ -62,6 +62,7 @@ jobs:
           kill -9 $(lsof -t -i:5000) || true
 
           npm start > /dev/null 2>&1 &
+          
 
           echo $! > deploy_pid
 
