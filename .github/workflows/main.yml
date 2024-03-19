@@ -6,37 +6,36 @@ on:
       - piyara2000-patch-2
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Run npm install
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        port: ${{ secrets.EC2_SSH_PORT }}
-        script: |
-          cd /home/ec2-user/TutorMeister/Controller
-          npm install
+    - name: Install dependencies
+      run: npm install
 
-    - name: Run npm test (continue on failure)
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        port: ${{ secrets.EC2_SSH_PORT }}
-        ignoreErrors: true
-        script: |
-          cd /home/ec2-user/TutorMeister/Controller
-          npm test || true  # Capture exit code but continue regardless
+  test:
+    runs-on: ubuntu-latest
+    needs: build
 
-    - name: Deploy changes
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run tests
+      run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.EC2_HOST }}
