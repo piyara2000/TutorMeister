@@ -6,14 +6,14 @@ on:
       - piyara2000-patch-2
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Run npm install
+    - name: Install dependencies
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.EC2_HOST }}
@@ -24,7 +24,15 @@ jobs:
           cd /home/ec2-user/TutorMeister/Controller
           npm install
 
-    - name: Run npm test
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run tests
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.EC2_HOST }}
@@ -33,7 +41,15 @@ jobs:
         port: ${{ secrets.EC2_SSH_PORT }}
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          npm test || true 
+          npm test || true  # Continue on test failure
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Deploy changes
       uses: appleboy/ssh-action@master
@@ -44,10 +60,10 @@ jobs:
         port: ${{ secrets.EC2_SSH_PORT }}
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          /usr/bin/git pull origin main
+          git pull origin main
           npm install
 
-          kill -9 $(/usr/sbin/lsof -t -i:5000) || true
+          kill -9 $(lsof -t -i:5000) || true
 
           npm start > /dev/null 2>&1 &
           echo $! > deploy_pid
