@@ -31,10 +31,9 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         port: ${{ secrets.EC2_SSH_PORT }}
-        ignoreErrors: true
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          npm test || true  # Capture exit code but continue regardless
+          npm test || true 
 
     - name: Deploy changes
       uses: appleboy/ssh-action@master
