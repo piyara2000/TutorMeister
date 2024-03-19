@@ -22,7 +22,7 @@ jobs:
         port: ${{ secrets.EC2_SSH_PORT }}
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          /usr/bin/npm install
+          npm install
 
     - name: Run npm test
       uses: appleboy/ssh-action@master
@@ -34,7 +34,7 @@ jobs:
         ignoreErrors: true
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          /usr/bin/npm test || true  # Capture exit code but continue regardless
+          npm test || true  # Capture exit code but continue regardless
 
     - name: Deploy changes
       uses: appleboy/ssh-action@master
@@ -46,12 +46,12 @@ jobs:
         script: |
           cd /home/ec2-user/TutorMeister/Controller
           /usr/bin/git pull origin main
-          /usr/bin/npm install
+          npm install
 
-          /bin/kill -9 $(/usr/sbin/lsof -t -i:5000) || true
+          kill -9 $(/usr/sbin/lsof -t -i:5000) || true
 
-          /usr/bin/npm start > /dev/null 2>&1 &
+          npm start > /dev/null 2>&1 &
           echo $! > deploy_pid
 
-          /bin/sleep 10
+          sleep 10
           exit 0
