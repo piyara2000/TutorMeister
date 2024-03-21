@@ -15,7 +15,7 @@ exports.community = (req, res) => {
       res.render("community", { message: "Student", username });
     } else {
       const username =
-        "Instructor: " + req.session.insFname + " " + req.session.insLname;
+        "Instructor: " + req.session.instructorFname + " " + req.session.instructorLname;
       const io = req.app.get("io");
 
       io.emit("community-event", { message: "Welcome to the community!" });

@@ -191,7 +191,7 @@ function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-
+  var port = normalizePort(app.get('port'));
   var bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
@@ -230,4 +230,3 @@ function onListening() {
 server.listen(app.get('port'), "0.0.0.0");
 server.on('error', onError);
 server.on('listening', onListening);
-
