@@ -4,6 +4,7 @@ const utils = require("../common/utils");
 const bodyParser = require("body-parser");
 const { check, validationResult } = require("express-validator");
 const session = require("express-session");
+const predictLearningStyle = require("./prediction_controller");
 
 exports.insAccountEdit = (req, res) => {
   if (!req.session.instructorId) {
@@ -125,7 +126,6 @@ exports.stuAccountEditPost = (req, res) => {
     var message = "";
     const errors = validationResult(req);
     var post = req.body;
-    console.log(post);
 
     var studentId = req.session.studentId;
     var username = post.username;
@@ -135,12 +135,10 @@ exports.stuAccountEditPost = (req, res) => {
     var password = post.password;
     password = password.trim();
     var educationalQualification = post.educationalQualification;
-    console.log(educationalQualification);
     var preLearningStyle = post.preLearningStyle;
     var learningPace = post.learningPace;
     var learningType = post.learningType;
     var learningMode = post.learningMode;
-    console.log(learningMode);
     var learningPreferences = post.learningPreferences;
 
     var encryptedpwd = "";
@@ -217,9 +215,19 @@ exports.stuAccountEditPost = (req, res) => {
                       if (learningMode == undefined) {
                         learningMode = modeFromDb;
                       }
-                      if (learningPreferences == "") {
-                        learningPreferences = notesFromDb;
+
+                      var learningPreferences = ""; // Initialize learning style variable
+
+                      // If additional learning preferences are provided, predict learning style
+                      if (post.learningPreferences) {
+                        learningPreferences = predictLearningStyle(
+                          post.learningPreferences
+                        );
+                      } else {
+                        // If no additional learning preferences are provided, use the existing learning style
+                        learningPreferences = learningStyleFromDb;
                       }
+
                       connection.query(
                         accountEditPageQuery.UPDATE_STUDENT,
                         [
