@@ -4,10 +4,10 @@ const utils = require("../common/utils");
 const bodyParser = require("body-parser");
 const { check, validationResult } = require("express-validator");
 const session = require("express-session");
+const predictLearningStyle = require("./prediction_controller");
 
 exports.insSignUp = (req, res) => {
   var message = "";
-  var userDetails = "";
   res.render("insSignUp", { message });
 };
 
@@ -73,7 +73,6 @@ exports.insSignUpPost = (req, res) => {
 
 exports.stuSignUp = (req, res) => {
   var message = "";
-  var userDetails = "";
   res.render("stuSignUp", { message });
 };
 
@@ -81,6 +80,9 @@ exports.stuSignUpPost = (req, res) => {
   var message = "";
   const errors = validationResult(req);
   var post = req.body;
+
+  // Extracting additionalText (sentence) from the request body
+  var additionalText = post.additionalText;
 
   var firstname = post.stufirstname;
   firstname = firstname.trim();
@@ -95,11 +97,9 @@ exports.stuSignUpPost = (req, res) => {
   var password = post.stupassword;
   password = password.trim();
   var eduqual = post.eduQual;
-  var learningStyle = post.learningStyle;
   var learningPace = post.learningPace;
   var isGroup = post.isGroup;
   var learningMode = post.learningMode;
-  var additionalText = post.additionalText;
 
   var userid = 0;
   var encryptedpwd = "";
@@ -124,6 +124,17 @@ exports.stuSignUpPost = (req, res) => {
           message = username + ", Username already exists!";
           res.render("stuSignUp", { message, userDetails: "" });
         } else {
+          var learningStyle = ""; // Initialize learning style variable
+
+          // If additionalText is present, preprocess and predict learning style
+          if (additionalText) {
+            // Use the prediction function to predict learning style
+            learningStyle = predictLearningStyle(additionalText);
+          } else {
+            // If additionalText is not present, use the learning style from input
+            learningStyle = post.learningStyle;
+          }
+
           connection.query(
             signUpQuery.ADD_STUDENT,
             [
@@ -133,7 +144,7 @@ exports.stuSignUpPost = (req, res) => {
               country,
               email,
               eduqual,
-              learningStyle,
+              learningStyle, // Pass predicted learning style or learning style from input
               learningPace,
               isGroup,
               learningMode,

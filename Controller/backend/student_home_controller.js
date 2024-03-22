@@ -28,7 +28,7 @@ exports.stuHome = (req, res) => {
             var stuLearningStyle = result[0].learningStyle;
             connection.query(
               stuHomeQuery.GET_STUDENT_COURSES,
-              [stuLearningStyle],
+              [studentid, stuLearningStyle],
               (err, result) => {
                 if (err) {
                   console.log(err);
