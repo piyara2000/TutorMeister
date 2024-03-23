@@ -48,7 +48,7 @@ jobs:
     needs: test
 
     env:
-      VERSION: v2
+      VERSION: v3
 
     steps:
     - name: Checkout repository
