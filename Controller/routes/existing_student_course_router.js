@@ -5,5 +5,5 @@ const existing_student_course_controller = require('../backend/existing_student_
 
 
 router.get('/existingStudentCourse', existing_student_course_controller.existingStudentCourse);
-router.post('/existingStudentCourse', existing_student_course_controller.existingStudentCourse);
+router.post('/existingStudentCourse', existing_student_course_controller.existingStudentCoursePost);
 module.exports = router;
