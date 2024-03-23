@@ -10,6 +10,10 @@
   width: 40%;
 }
 
+.container-formCourse{
+  width: 40%;
+}
+
 .formCourse {
   width: 100%;
   background: #ffffff;
@@ -86,7 +90,6 @@ h4 {
 }
 
 .profile1 {
-  width: 50%;
   height: 25%;
   align-self: start;
   border-radius: 4%;
@@ -129,8 +132,66 @@ h4 {
   }
 }
 
+.ratingA{
+  display: flex;
+  justify-content: flex-end;
+   /* remove inline-block whitespace */
+   font-size: 0;
+   /* flip the order so we can use the + and ~ combinators */
+   unicode-bidi: bidi-override;
+   direction: rtl;
+   /* the hidden clearer */
+}
+.ratingA * {
+  font-size: 2rem;
+}
+.ratingA > input {
+  display: none;
+} 
+.ratingA > input + label {
+  /* only enough room for the star */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 9999px;
+  width: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ratingA > input + label:before {
+  display: inline-block;
+  text-indent: -9999px;
+  content: "☆";
+  color: #888;
+}
+.ratingA > input:checked ~ label:before, .ratingA > input + label:hover ~ label:before, .ratingA > input + label:hover:before {
+  content: "★";
+  color: #e52;
+  text-shadow: 0 0 1px #333;
+}
+.ratingA > .star-cb-clear + label {
+  text-indent: -9999px;
+  width: .5em;
+  margin-left: -.5em;
+}
+.ratingA > .star-cb-clear + label:before {
+  width: .5em;
+}
+.ratingA:hover > input + label:before {
+  content: "☆";
+  color: #888;
+  text-shadow: none;
+}
+.ratingA:hover > input + label:hover ~ label:before, .ratingA:hover > input + label:hover:before {
+  content: "★";
+  color: #e52;
+  text-shadow: 0 0 1px #333;
+}
+.feedbackBox{
+  width: 100%;
+}
 .review {
-  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   padding-right: 5%;
   text-align: left;
   text-align: justify;

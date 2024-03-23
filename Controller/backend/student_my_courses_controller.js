@@ -21,7 +21,7 @@ exports.stuCourseHome = (req, res) => {
         if (err) {
           console.log(err);
           res.send(err.stack);
-          connection.release();
+          // connection.release();
           return;
         } else {
           if (result.length > 0) {
@@ -46,6 +46,7 @@ exports.stuCourseHome = (req, res) => {
                         CourseName: result[i].coursename,
                         Level: result[i].level,
                         CourseId: result[i].courseid,
+                        insId: result[i].instructorid,
                         Instructor:
                           result[i].insfname + " " + result[i].inslname,
                       };
@@ -76,6 +77,8 @@ exports.stuCourseHomePost = (req, res) => {
   } else {
     const courseId = req.body.courseId;
     req.session.courseid = courseId;
+    const insId = req.body.insId;
+    req.session.insId = insId;
 
     // Retrieve additional course details based on courseId
     const connection = db.getMySQLConnection();

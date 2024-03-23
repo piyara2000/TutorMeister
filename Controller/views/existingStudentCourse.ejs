@@ -76,34 +76,26 @@
           </div>
           <% } %> <% } %>
           <div class="heading2">
-            <h4>Ratings and Reviews</h4>
+            <h4>Rate and Review</h4>
           </div>
           <div class="star-rating">
             <div class="ratingA">
-              <input type="radio" name="rating1" id="rating1" />
-              <label for="rating1"></label>
-              <input type="radio" name="rating1" id="rating2" />
-              <label for="rating2"></label>
-              <input type="radio" name="rating1" id="rating3" />
-              <label for="rating3"></label>
-              <input type="radio" name="rating1" id="rating4" />
-              <label for="rating4"></label>
-              <input type="radio" name="rating1" id="rating5" />
-              <label for="rating5"></label>
-              <h6 class="value">4.6</h6>
-              <br />
-              <br />
-              <br />
+              <input type="radio" name="rating1" id="rating5" value="5"/>
+              <label for="rating5">5</label>
+              <input type="radio" name="rating1" id="rating4" value="4"/>
+              <label for="rating4">4</label>
+              <input type="radio" name="rating1" id="rating3" value="3"/>
+              <label for="rating3">3</label>
+              <input type="radio" name="rating1" id="rating2" value="2"/>
+              <label for="rating2">2</label>
+              <input type="radio" name="rating1" id="rating1" value="1"/>
+              <label for="rating1">1</label>
+              <input type="radio" name="rating1" id="rating0" value="0" class="star-cb-clear" />
+              <label for="rating0">0</label>
             </div>
           </div>
           <div class="review">
-            <p>
-              Great! <br />
-              He helped me feel more prepared for an exam I had the day before
-              on linear programming with very short notice. He makes sure you
-              understand it before going forward, and is patient with you. I
-              recommend him!!
-            </p>
+            <textarea name="stuReview" class="feedbackBox" placeholder="Add your review here"></textarea> <!-- Corrected the name attribute -->
           </div>
           <div class="flexRate">
             <div class="flexRateBox">
@@ -111,7 +103,6 @@
                 type="submit"
                 value="Rate and Review"
                 class="button rate-btn"
-                onclick="window.location.href='/student-home'"
               />
             </div>
           </div>
