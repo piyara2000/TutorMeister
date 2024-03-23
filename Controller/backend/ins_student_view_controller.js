@@ -95,10 +95,10 @@ exports.insStudentViewPost = (req, res) => {
   }
   const studentId = req.body.studentId;
   req.session.userid = studentId;
-
+  console.log("studentId",studentId);
   const courseId = req.body.courseId;
   req.session.course_id = courseId;
-
+  console.log("courseId",courseId);
   const requestId = req.body.requestId;
   req.session.request_id = requestId;
   
@@ -106,19 +106,24 @@ exports.insStudentViewPost = (req, res) => {
   const connection = db.getMySQLConnection();
   connection.connect();
   connection.query(
-    insStudentViewQuery.GET_STUDENT_DATA,
-    [studentId],
+    insStudentViewQuery.GET_PAGE,
+    [studentId,courseId],
     (err, result) => {
       if (err) {
         console.log(err);
         res.send(err.stack);
         return;
       }
-
       if (result.length > 0) {
-        res.redirect(`/acceptStudent`);
+        const isEnrolled = result[0].is_enrolled;
+        console.log("isEnrolled",isEnrolled);
+        if (isEnrolled === 0) {
+          res.redirect(`/acceptStudent`);
+        } else {
+          res.redirect(`/ins-RateReview`);
+        }
       } else {
-        res.send("Student details not found.");
+        res.send("Enrollment status not found.");
       }
 
       connection.end();
