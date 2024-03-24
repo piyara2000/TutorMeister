@@ -9,16 +9,92 @@
   <link rel="stylesheet" href="/css/footer.css" />
   <title>Student View Enrolled Courses | TutorMeister</title>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery UI library -->
+  <link
+    rel="stylesheet"
+    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+  />
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+  <input type="hidden" id="studentId" value="<%= studentId %>" />
+  <input type="hidden" id="courseId" value="<%= dbRecordList[0].CourseId %>" />
+
+
+  <script>
+    function scheduleMeeting() {
+      const selectedDateTime = document.getElementById("meetingDateTime").value;
+      const studentId = document.getElementById("studentId").value;
+      const courseId = document.getElementById("courseId").value;
+
+      // Check if both date and time are selected
+      if (!selectedDateTime) {
+        alert("Please select a date & time.");
+        return;
+      }
+
+      // Send the selected date and time to the backend
+      $.ajax({
+        url: "/schedule",
+        method: "POST",
+        data: {
+          scheduled_date: selectedDateTime.split("T")[0], // Extract date
+          scheduled_time: selectedDateTime.split("T")[1], // Extract time
+          student_id: studentId,
+          course_id: courseId,
+        },
+        success: function (response) {
+          alert("Meeting scheduled successfully!");
+          window.location.href = "/student-course-home";
+        },
+        error: function (xhr, status, error) {
+          console.error("Error scheduling:", error);
+          alert("An error occurred while scheduling");
+        },
+      });
+    }
+  </script>
+
 </head>
 <body style="background-color: #9ee493">
   <%- include('navBarStudent.ejs') %>
   <div class="containerCourse">
-    <div class="profile1">
+    <div class="profile2">
       <% if (dbRecordList && dbRecordList.length > 0) { %> <% for (let i = 0;
       i < dbRecordList.length; i++) { %>
       <img class="profile-image" src="img/user.png" alt="" />
-      <div class="labelpro">
-        <span class="labelpro1"> <%= dbRecordList[0].Instructor %></span>
+      <div class="labelpro2">
+        <span class="labelpro2"> <%= dbRecordList[0].Instructor %></span>
+        <div class="flex-container1">
+          <div class="profile-itemDate">
+            <label class="labelDateTime">Select a Date & Time : </label>
+            <input
+              type="datetime-local"
+              class="flatpickr"
+              id="meetingDateTime"
+              name="meetingDateTime"
+              placeholder="Select a Date"
+            />
+          </div>
+        </div>
+
+        <div>
+          <input
+            type="button"
+            value="Request a meeting"
+            class="button notify-btn1"
+            id="scheduleButton"
+            onClick="scheduleMeeting()"
+          />
+        </div>
       </div>
     </div>
 

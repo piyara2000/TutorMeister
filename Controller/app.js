@@ -1,9 +1,9 @@
-var express = module.exports = require("express");
+var express = (module.exports = require("express"));
 const path = require("path");
 var cookieParser = require("cookie-parser");
 const http = require("http");
 const socketIo = require("socket.io");
-var debug = require('debug')('tutormeister-app:server');
+var debug = require("debug")("tutormeister-app:server");
 
 var app = express();
 const session = require("express-session");
@@ -19,21 +19,21 @@ app.set("io", io);
 
 const socketsConnected = new Set();
 
-io.on('connection', (socket) => {
+io.on("connection", (socket) => {
   socketsConnected.add(socket.id);
-  io.emit('clients-total', socketsConnected.size);
+  io.emit("clients-total", socketsConnected.size);
 
-  socket.on('disconnect', () => {
+  socket.on("disconnect", () => {
     socketsConnected.delete(socket.id);
-    io.emit('clients-total', socketsConnected.size);
+    io.emit("clients-total", socketsConnected.size);
   });
 
-  socket.on('message', (data) => {
-    socket.broadcast.emit('chat-message', data);
+  socket.on("message", (data) => {
+    socket.broadcast.emit("chat-message", data);
   });
 
-  socket.on('feedback', (data) => {
-    socket.broadcast.emit('feedback', data);
+  socket.on("feedback", (data) => {
+    socket.broadcast.emit("feedback", data);
   });
 });
 
@@ -50,7 +50,8 @@ var existingStudentCourseRouter = require("./routes/existing_student_course_rout
 var stuCourseHomeRouter = require("./routes/stu_course_home_router");
 var acceptStudentRouter = require("./routes/accept_student_router");
 var communityRouter = require("./routes/community_router");
-var insRateReviewRouter=require("./routes/insRateReview_router");
+var insRateReviewRouter = require("./routes/insRateReview_router");
+var scheduleRequestRouter = require("./routes/schedule_request_router");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -80,7 +81,6 @@ app.use((req, res, next) => {
   const isLoginPage2 = req.path === "/";
   const isInstructorSignupPage = req.path === "/instructor-register";
   const isStudentSignupPage = req.path === "/student-register";
-  
 
   const isLoggedIn = req.session && req.session.instructorId;
 
@@ -145,10 +145,11 @@ app.get("/student-home", stuHomeRouter);
 app.post("/student-home", stuHomeRouter);
 
 app.get("/studentMyCourse", studentMyCourseRouter);
-app.post("/studentMyCourse",studentMyCourseRouter);
+app.post("/studentMyCourse", studentMyCourseRouter);
 
 app.get("/existingStudentCourse", existingStudentCourseRouter);
-app.post("/existingStudentCourse",existingStudentCourseRouter);
+app.post("/existingStudentCourse", existingStudentCourseRouter);
+app.post("/schedule", existingStudentCourseRouter);
 
 app.get("/instructor-student-view", insStudentViewRouter);
 app.post("/instructor-student-view", insStudentViewRouter);
@@ -163,10 +164,13 @@ app.post("/rejectStudent", acceptStudentRouter);
 app.get("/ins-RateReview", insRateReviewRouter);
 app.post("/ins-RateReview", insRateReviewRouter);
 
+app.get("/scheduleRequest", scheduleRequestRouter);
+app.post("/requestAccept", scheduleRequestRouter);
+app.post("/requestReject", scheduleRequestRouter);
 
 app.get("/chat", communityRouter);
 
-app.set('port', normalizePort(5000));
+app.set("port", normalizePort(5000));
 
 /**
  * Normalize a port into a number, string, or false.
@@ -193,22 +197,20 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
-  var port = normalizePort(app.get('port'));
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var port = normalizePort(app.get("port"));
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -222,16 +224,14 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
 }
 
 /**
  * Start the HTTP server.
  */
 
-server.listen(app.get('port'), "0.0.0.0");
-server.on('error', onError);
-server.on('listening', onListening);
+server.listen(app.get("port"), "0.0.0.0");
+server.on("error", onError);
+server.on("listening", onListening);

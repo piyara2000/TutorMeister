@@ -1,6 +1,7 @@
 const db = require("../common/database");
 const existingStudentCourseQuery = require("../querymanager/existingStudentCourseQuery");
 const insHomeQuery = require("../querymanager/insHomeQuery");
+const insStudentViewQuery = require("../querymanager/insStudentViewQuery");
 const { validationResult } = require("express-validator");
 
 exports.existingStudentCourse = (req, res) => {
@@ -34,7 +35,7 @@ exports.existingStudentCourse = (req, res) => {
                 Mode: result[i].mode,
                 TeachingStyle: result[i].teachingstyle,
               };
-              console.log(dbRecord.CourseId);
+
               connection.query(
                 existingStudentCourseQuery.GET_STUDENT_RATINGS,
                 [dbRecord.CourseId],
@@ -65,10 +66,16 @@ exports.existingStudentCourse = (req, res) => {
               dbRecordList.push(dbRecord);
             }
             connection.end();
-            res.render("existingStudentCourse", { dbRecordList: dbRecordList });
+            res.render("existingStudentCourse", {
+              dbRecordList: dbRecordList,
+              studentId: req.session.studentId,
+            });
           } else {
             connection.end();
-            res.render("existingStudentCourse", { dbRecordList: [] });
+            res.render("existingStudentCourse", {
+              dbRecordList: [],
+              studentId: req.session.studentId,
+            });
           }
         }
       }
@@ -81,14 +88,10 @@ exports.existingStudentCoursePost = (req, res) => {
     return res.redirect("/login");
   } else {
     var studentId = req.session.studentId;
-    console.log("Student ID: ", studentId);
     const errors = validationResult(req);
     var instructorId = req.session.insId;
-    console.log("Instructor ID: ", instructorId);
     var courseId = req.session.courseid;
-    console.log("Course ID: ", courseId);
     var rateNum = req.body.rating1;
-    console.log("Rating: ", rateNum);
     var stuReview = req.body.stuReview || "";
     stuReview = stuReview.trim();
     const connection = db.getMySQLConnection();
@@ -106,4 +109,29 @@ exports.existingStudentCoursePost = (req, res) => {
       }
     );
   }
+};
+
+exports.scheduleMeetingPost = (req, res) => {
+  const { student_id, course_id, scheduled_date, scheduled_time } = req.body;
+
+  const connection = db.getMySQLConnection();
+  connection.connect();
+  connection.query(
+    existingStudentCourseQuery.ADD_SCHEDULE_REQUEST,
+    [course_id, student_id, scheduled_date, scheduled_time],
+    (err) => {
+      if (err) {
+        console.error("Error scheduling meeting:", err);
+        res.status(500).json({
+          error: "An error occurred while scheduling the meeting",
+        });
+      } else {
+        res
+          .status(200)
+          .json({ message: "Prefered Date & Time sent successfully!" });
+      }
+
+      connection.end();
+    }
+  );
 };
