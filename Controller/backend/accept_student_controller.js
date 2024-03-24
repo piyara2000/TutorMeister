@@ -28,9 +28,6 @@ exports.acceptStudent = (req, res) => {
             const totalCount = result.length;
             const averageInteger = Math.floor(sum / totalCount);
             const averageDecimal = (sum / totalCount).toFixed(2);
-            console.log("Sum of rating_num:", sum);
-            console.log("Integer Average:", averageInteger);
-            console.log("Decimal Average:", averageDecimal);
             result.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
             if (result.length > 0) {
               let dbRecord = {
@@ -44,59 +41,45 @@ exports.acceptStudent = (req, res) => {
               
               }
               dbRecordList.push(dbRecord);
-              console.log("Latest Review: ",dbRecord.Feedback)
-              console.log("dbRecord: ", dbRecord);
-              console.log("dbRecordList: ", dbRecordList);
+              
             }
             connection.end();
             res.render("acceptStudent", { dbRecordList: dbRecordList});
           } else {
-            connection.end();
-            res.render("acceptStudent", { dbRecordList: []});
+            connection.query(
+                    insStudentViewQuery.GET_STUDENT_DATA,
+                    [studentId],
+                    (err, result) => {
+                      if (err) {
+                        console.log(err);
+                        res.send(err.stack);
+                        return;
+                      } else {
+                        if (result.length > 0) {
+                          for (var i = 0; i < result.length; i++) {
+                            var dbRecord = {
+                              Student: result[i].firstname + " " + result[i].lastname,
+                              EduLevel: result[i].eduLevel,
+                              LearningStyle: result[i].learningStyle,
+                              LearningPace: result[i].learningPace,
+                            };
+                            dbRecordList.push(dbRecord);
+                          }
+                          connection.end();
+                          res.render("acceptStudent", { dbRecordList: dbRecordList });
+                        } else {
+                          connection.end();
+                          res.render("acceptStudent", { dbRecordList: [] });
+                        }
+                      }
+                    }
+                  );
           }
         }
       }
     );
   }
 };
-// exports.acceptStudent = (req, res) => {
-//   if (!req.session || !req.session.instructorId) {
-//     return res.redirect("/login");
-//   } else {
-//     var dbRecordList = [];
-//     var studentId = req.session.userid;
-//     var connection = db.getMySQLConnection();
-//     connection.connect();
-//     connection.query(
-//       insStudentViewQuery.GET_ALL_DETAILS,
-//       [studentId],
-//       (err, result) => {
-//         if (err) {
-//           console.log(err);
-//           res.send(err.stack);
-//           return;
-//         } else {
-//           if (result.length > 0) {
-//             for (var i = 0; i < result.length; i++) {
-//               var dbRecord = {
-//                 Student: result[i].firstname + " " + result[i].lastname,
-//                 EduLevel: result[i].eduLevel,
-//                 LearningStyle: result[i].learningStyle,
-//                 LearningPace: result[i].learningPace,
-//               };
-//               dbRecordList.push(dbRecord);
-//             }
-//             connection.end();
-//             res.render("acceptStudent", { dbRecordList: dbRecordList });
-//           } else {
-//             connection.end();
-//             res.render("acceptStudent", { dbRecordList: [] });
-//           }
-//         }
-//       }
-//     );
-//   }
-// };
 
 // Function to send email
 async function sendEmail(receiverEmail, courseName) {
@@ -214,3 +197,4 @@ exports.rejectStudentPost = (req, res) => {
     }
   }
 };
+
