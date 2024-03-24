@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student View</title>
+    <link rel="stylesheet" href="css/insStudentView.css" />
+    <link rel="icon" href="img/logo.jpg" type="image/jpg" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+
+    <script>
+      
+    </script>
+  </head>
+  <body>
+    <%- include('navBarInstructor.ejs') %>
+
+    <div class="search-margin">
+      <input
+        type="text"
+        class="instructor-search"
+        id="search"
+        placeholder="Search"
+        oninput="filterItems()"
+      />
+    </div>
+
+    <section class="container content-section">
+      <div>
+        <% if (message !== undefined) { %>
+        <p class="message"><%= message %></p>
+        <% } %>
+        <div class="itemsIns">
+          <% if (dbRecordList && dbRecordList.length > 0) { %> <% for (let i =
+          0; i < dbRecordList.length; i++) { %>
+
+          <div class="itemIns">
+            <img
+              class="itemIns-image1"
+              src="img/user.png"
+              alt="student image"
+            />
+            <span class="itemIns-title"><%= dbRecordList[i].Student %></span>
+            <div class="itemIns-details">
+              <span class="grade-span"><%= dbRecordList[i].EduLevel %></span>
+              <span><b>Course Name:</b></span>
+              <span class="subject-span"
+                ><%= dbRecordList[i].CourseName %></span
+              >
+              <span><b>Date:</b></span>
+              <span class="date-span"
+                ><%= dbRecordList[i]. ScheduledDate %></span
+              >
+              <span><b>Time:</b></span>
+              <span class="time-span"
+                ><%= dbRecordList[i]. ScheduledTime %></span
+              >
+              <form
+                action="/requestAccept"
+                method="POST"
+                onsubmit="acceptStudent(event)"
+              >
+                <input
+                  type="hidden"
+                  name="scheduleId"
+                  value="<%= dbRecordList[i].ScheduleId %>"
+                />
+                <input
+                  type="hidden"
+                  name="studentId"
+                  value="<%= dbRecordList[i].StudentId %>"
+                />
+                <input
+                  type="hidden"
+                  name="courseId"
+                  value="<%= dbRecordList[i].CourseId %>"
+                />
+                <input
+                  type="hidden"
+                  name="ScheduledDate"
+                  value="<%= dbRecordList[i].ScheduledDate %>"
+                />
+                <input
+                  type="hidden"
+                  name="ScheduledTime"
+                  value="<%= dbRecordList[i].ScheduledTime %>"
+                />
+                <button class="button accept-btn1" type="submit">
+                  Accept Student
+                </button>
+              </form>
+
+              <form action="/requestReject" method="POST">
+                <input
+                  type="hidden"
+                  name="scheduleId"
+                  value="<%= dbRecordList[i].ScheduleId %>"
+                />
+                <input
+                  type="hidden"
+                  name="ScheduledDate"
+                  value="<%= dbRecordList[i].ScheduledDate %>"
+                />
+                <input
+                  type="hidden"
+                  name="ScheduledTime"
+                  value="<%= dbRecordList[i].ScheduledTime %>"
+                />
+                <button class="button reject-btn" type="submit">
+                  Reject Student
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <% if ((i + 1) % 3 === 0 && i !== dbRecordList.length - 1) { %>
+          <!-- Add a clearing div after every 3 items -->
+          <div style="clear: both"></div>
+          <% } %> <% } %> <% } else { %>
+          <br />
+          <% } %>
+        </div>
+      </div>
+    </section>
+    <%- include('footer') %>
+  </body>
+</html>
