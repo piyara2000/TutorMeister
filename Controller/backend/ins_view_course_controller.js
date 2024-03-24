@@ -9,12 +9,9 @@ exports.insViewCourse = (req, res) => {
   } else {
     var dbRecordList = [];
     var courseid = req.session.courseid;
-    var insFname = req.session.instructorFname;
-    var insLname = req.session.instructorLname;
     var connection = db.getMySQLConnection();
     connection.connect();
     connection.query(
-      // insHomeQuery.GET_COURSE_DETAILS,
       existingStudentCourseQuery.GET_ALL_DETAILS,
       [courseid],
       (err, result) => {
@@ -31,9 +28,6 @@ exports.insViewCourse = (req, res) => {
             const totalCount = result.length;
             const averageInteger = Math.floor(sum / totalCount);
             const averageDecimal = (sum / totalCount).toFixed(2);
-            console.log("Sum of rating_num:", sum);
-            console.log("Integer Average:", averageInteger);
-            console.log("Decimal Average:", averageDecimal);
             result.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
             if (result.length > 0) {
               let dbRecord = {
@@ -56,15 +50,51 @@ exports.insViewCourse = (req, res) => {
                 dbRecord.Video = `https://www.youtube.com/embed/${videoId}`;
               }
               dbRecordList.push(dbRecord);
-              console.log("Latest Review: ",dbRecord.Feedback)
-              console.log("dbRecord: ", dbRecord);
-              console.log("dbRecordList: ", dbRecordList);
             }
             connection.end();
             res.render("viewCourse", { dbRecordList: dbRecordList });
           } else {
-            connection.end();
-            res.render("viewCourse", { dbRecordList: [] });
+            connection.query(
+              insHomeQuery.GET_COURSE_DETAILS,
+              [courseid],
+              (err, result) => {
+                if (err) {
+                  console.log(err);
+                  res.send(err.stack);
+                  return;
+                } else {
+                  if (result.length > 0) {
+                    for (var i = 0; i < result.length; i++) {
+                      var dbRecord = {
+                        CourseName: result[i].coursename,
+                        Level: result[i].level,
+                        Instructor: result[i].insfname + " " + result[i].inslname,
+                        CourseId: result[i].courseid,
+                        Description: result[i].description,
+                        Subject: result[i].subject,
+                        TeachingFormat: result[i].teachingformat,
+                        EduLevel: result[i].eduLevel,
+                        Mode: result[i].mode,
+                        TeachingStyle: result[i].teachingstyle,
+                        IntegerAverage: 0,
+                        DecimalAverage: 0,
+                        Feedback: "None",
+                      };
+                      // Check if video is present in the result and add it to dbRecord
+                      if (result[i].video !== undefined && result[i].video !== "") {
+                        const videoId = extractVideoId(result[i].video);
+                        dbRecord.Video = 'https://www.youtube.com/embed/${videoId}';
+                      }
+                      dbRecordList.push(dbRecord);
+                    }
+                    connection.end();
+                    res.render("viewCourse", { dbRecordList: dbRecordList });
+                  } else {
+                    connection.end();
+                    res.render("viewCourse", { dbRecordList: [] });
+                  }
+                }
+              })
           }
         }
       }
