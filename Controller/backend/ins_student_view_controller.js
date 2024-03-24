@@ -95,10 +95,8 @@ exports.insStudentViewPost = (req, res) => {
   }
   const studentId = req.body.studentId;
   req.session.userid = studentId;
-  console.log("studentId",studentId);
   const courseId = req.body.courseId;
   req.session.course_id = courseId;
-  console.log("courseId",courseId);
   const requestId = req.body.requestId;
   req.session.request_id = requestId;
   
@@ -116,7 +114,6 @@ exports.insStudentViewPost = (req, res) => {
       }
       if (result.length > 0) {
         const isEnrolled = result[0].is_enrolled;
-        console.log("isEnrolled",isEnrolled);
         if (isEnrolled === 0) {
           res.redirect(`/acceptStudent`);
         } else {
