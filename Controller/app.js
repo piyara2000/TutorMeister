@@ -50,6 +50,7 @@ var existingStudentCourseRouter = require("./routes/existing_student_course_rout
 var stuCourseHomeRouter = require("./routes/stu_course_home_router");
 var acceptStudentRouter = require("./routes/accept_student_router");
 var communityRouter = require("./routes/community_router");
+var insRateReviewRouter=require("./routes/insRateReview_router");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -158,6 +159,10 @@ app.post("/student-course-home", stuCourseHomeRouter);
 app.get("/acceptStudent", acceptStudentRouter);
 app.post("/acceptStudent", acceptStudentRouter);
 app.post("/rejectStudent", acceptStudentRouter);
+
+app.get("/ins-RateReview", insRateReviewRouter);
+app.post("/ins-RateReview", insRateReviewRouter);
+
 
 app.get("/chat", communityRouter);
 

@@ -47,6 +47,19 @@
             </p>
             <span>Learning Pace: <%= dbRecordList[i].LearningPace %></span>
           </div>
+        </br>
+          <div class="star-rating">
+            <div class="profile-item">
+              <span class="label"><b>Rating :</b></span> <%=
+              dbRecordList[0].DecimalAverage %>
+            </div>
+          </div>
+        </br>
+            <div class="profile-item">
+              <span class="label"><b>Review :</b></span> <%=
+              dbRecordList[0].Feedback %>
+            </div>
+          </div>
         </div>
         <% if ((i + 1) % 3 === 0 && i !== dbRecordList.length - 1) { %>
         <!-- Add a clearing div after every 3 items -->
