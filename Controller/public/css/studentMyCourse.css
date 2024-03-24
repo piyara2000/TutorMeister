@@ -3,7 +3,7 @@
   justify-content: center;
   text-align: justify;
   align-items: center;
-  padding: 5%;
+  padding: 2%;
 }
 
 .containerCourse-formCourse {
@@ -11,8 +11,13 @@
 }
 
 .container-formCourse{
-  width: 40%;
+  width: 45%;
 }
+
+.flatpickr {
+  margin-left: 39%;
+  margin-top: 5%;
+ }
 
 .formCourse {
   width: 100%;
@@ -26,11 +31,24 @@
   color: #000000;
 }
 
-#datepicker {
+/* #datepicker {
   margin-left: 10%;
-}
+} */
 .flexRate {
   text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  
+}
+
+.flex-container1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 50%;
 }
 
 h4 {
@@ -43,16 +61,39 @@ h4 {
 .label {
   font-weight: bold;
 }
+
 .labelDate {
   font-size: 1.5rem;
   margin-left: 10%;
   margin-right: 20%;
 }
 
+.labelDateTime {
+  font-size: 1rem;
+  font-weight: lighter;
+  margin-bottom: 20%;
+  
+}
+
 .labelpro1 {
   margin-top: 90%;
   font-size: 1.5rem;
 }
+
+.labelpro2 {
+  margin-top: 1%;
+  font-size: 1.5rem;
+}
+
+.labelpro2 {
+  margin-bottom: 90%;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bolder;
+}
+
 .labelpro {
   margin-top: 10%;
   align-items: center;
@@ -66,8 +107,9 @@ h4 {
 }
 
 .notify-btn1 {
-  margin-left: 20%;
+  margin-left: 1%;
   margin-top: 5%;
+  width: 50%;
   background-color: #9ee493;
   color: #000000;
   padding: 10px 20px;
@@ -90,10 +132,21 @@ h4 {
 }
 
 .profile1 {
+  width: 50%;
   height: 25%;
   align-self: start;
   border-radius: 4%;
   margin-right: 10%;
+  border: 2px solid black;
+  background-color: white;
+}
+
+.profile2 {
+  width: 30%;
+  height: 45%;
+  align-self: start;
+  border-radius: 4%;
+  margin-right: 20%;
   border: 2px solid black;
   background-color: white;
 }
@@ -103,10 +156,11 @@ h4 {
 }
 
 .profile-image {
-  width: 60%;
-  height: 60%;
-  margin-left: 20%;
-  margin-top: 10%;
+  width: 30%;
+  height: 30%;
+  
+  margin-left: 35%;
+  margin-top: 5%;
 }
 
 .profile-item {
@@ -114,9 +168,15 @@ h4 {
   flex-direction: row;
 }
 
-.profile-itemdate {
-  margin-top: 60px;
+.profile-itemTime{
+  margin-bottom: 1%;
+  margin-right: 5%;
+ 
 }
+
+/* .profile-itemdate {
+  margin-top: 60px;
+} */
 
 .rate-btn {
   background-color: #9ee493;
