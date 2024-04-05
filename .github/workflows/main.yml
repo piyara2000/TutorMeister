@@ -41,14 +41,14 @@ jobs:
         port: ${{ secrets.EC2_SSH_PORT }}
         script: |
           cd /home/ec2-user/TutorMeister/Controller
-          npm test || true  # Continue on test failure
+          npm test || true
 
   deploy:
     runs-on: ubuntu-latest
     needs: test
 
     env:
-      VERSION: v7
+      VERSION: v8
 
     steps:
     - name: Checkout repository
